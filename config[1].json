@@ -84,17 +84,17 @@
         },
         "portfolios": [
             {
-                "imgUrl": "https://i.ibb.co/71xyv6M/online-music-player.png",
+                "imgUrl": "https://github.com/rupambhakta/Portfolio/blob/main/musicPlayerAppDemoPic.jpg",
                 "title": "Music Player app",
-                "desc": "An interactive online music player platform offering a vast library of songs for seamless streaming.",
+                "desc": "An interactive music player platform that fetch songs from your android modile and play song.",
                 "techs": [
-                    "HTML",
-                    "CSS",
-                    "Js",
-                    "RapidAPI"
+                    "Android Studio",
+                    "XML",
+                    "JAVA",
+                    "Exoplayer"
                 ],
-                "iframeUrl": "https://ritwickrajmakhal.github.io/online-music-player/",
-                "categories" : ["WEB DEVELOPMENT", "REST API"]
+                "iframeUrl": "https://github.com/rupambhakta/Portfolio/blob/main/MusicPlayerDemoVideo.mp4",
+                "categories" : ["Android DEVELOPMENT", "Music"]
             },
             {
                 "imgUrl": "https://i.ibb.co/Wgw8fkN/desktop-music-player.png",
