@@ -15,7 +15,7 @@
             "socialHandles": [
                 {
                     "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-                    "profile": "https://github.com/ritwickrajmakhal/"
+                    "profile": "https://github.com/rupambhakta"
                 },
                 {
                     "logo": "https://github.com/rupambhakta/Portfolio/blob/main/Facebook_logo.jpg",
@@ -26,7 +26,11 @@
                     "profile": "https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=rupam-bhakta-b622b0222"
                 },
                 {
-                    "logo": "https://i.ibb.co/VV7nmXv/gmail.jpg",
+                    "logo": "https://github.com/rupambhakta/Portfolio/blob/main/GmailLogo.png",
+                    "profile": "rupambhakta2020@gmail.com"
+                },
+                {
+                    "logo": "https://github.com/rupambhakta/Portfolio/blob/main/GmailLogo.png",
                     "profile": "rupambhakta2020@gmail.com"
                 }
             ],
