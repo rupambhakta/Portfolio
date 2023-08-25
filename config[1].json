@@ -14,7 +14,7 @@
             ],
             "socialHandles": [
                 {
-                    "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                    "logo": "https://github.com/rupambhakta/Portfolio/blob/main/gitHubLogo.png",
                     "profile": "https://github.com/rupambhakta"
                 },
                 {
@@ -32,15 +32,27 @@
                 {
                     "logo": "https://github.com/rupambhakta/Portfolio/blob/main/GmailLogo.png",
                     "profile": "rupambhakta2020@gmail.com"
+                },
+                {
+                    "logo": "https://github.com/rupambhakta/Portfolio/blob/main/LeetCode_img.png",
+                    "profile": "https://leetcode.com/Rupam_Bhakta/"
+                },
+                {
+                    "logo": "https://github.com/rupambhakta/Portfolio/blob/main/twitter_logo.png",
+                    "profile": "https://twitter.com/rupam_bhakta?t=lgTdNvKhMd4OsyNIjADxpg&s=08"
                 }
             ],
             "skills": [
                 {
-                    "name": "MERN Stack",
+                    "name": "JAVA",
                     "value": 50
                 },
                 {
                     "name": "Python",
+                    "value": 70
+                },
+                {
+                    "name": "Android Studio",
                     "value": 70
                 }
             ]
@@ -73,7 +85,7 @@
         "portfolios": [
             {
                 "imgUrl": "https://i.ibb.co/71xyv6M/online-music-player.png",
-                "title": "Online Music Player",
+                "title": "Music Player app",
                 "desc": "An interactive online music player platform offering a vast library of songs for seamless streaming.",
                 "techs": [
                     "HTML",
