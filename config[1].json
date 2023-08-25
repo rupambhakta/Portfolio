@@ -97,16 +97,16 @@
                 "categories" : ["Android DEVELOPMENT", "Music"]
             },
             {
-                "imgUrl": "https://i.ibb.co/Wgw8fkN/desktop-music-player.png",
-                "title": "Desktop Music Player",
-                "desc": "A sleek and intuitive application for organizing and enjoying your favorite tunes with seamless playback and customizable features.",
+                "imgUrl": "https://github.com/rupambhakta/Portfolio/blob/main/TicTacToeGame.jpg",
+                "title": "Tic Tac Toe",
+                "desc": "A Tic Tac Toe game that you can play with your friend.",
                 "techs": [
-                    "Python",
-                    "Tkinter",
-                    "pygame mixer"
+                    "JAVA",
+                    "Android Studio",
+                    "XML"
                 ],
                 "iframeUrl": "https://i.ibb.co/CQxFkhV/offline-music-player-demo.png",
-                "categories" : ["DESKTOP DEVELOPMENT"]
+                "categories" : ["Android DEVELOPMENT"]
             },
             {
                 "imgUrl": "https://i.ibb.co/3NFw8fK/food-recepie-search.png",
