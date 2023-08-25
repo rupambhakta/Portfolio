@@ -105,31 +105,8 @@
                     "Android Studio",
                     "XML"
                 ],
-                "iframeUrl": "https://i.ibb.co/CQxFkhV/offline-music-player-demo.png",
+                "iframeUrl": "https://github.com/rupambhakta/Portfolio/blob/main/TicTacToePic2.jpg",
                 "categories" : ["Android DEVELOPMENT"]
-            },
-            {
-                "imgUrl": "https://i.ibb.co/3NFw8fK/food-recepie-search.png",
-                "title": "Food Recipe Search",
-                "desc": "Your ultimate culinary companion - a Food Recipe Search website bringing you a world of delightful dishes at your fingertips.",
-                "techs": [
-                    "React",
-                    "Bootstrap",
-                    "Edamam API"
-                ],
-                "iframeUrl": "https://ritwickrajmakhal.github.io/food-recipe-search/",
-                "categories" : ["WEB DEVELOPMENT", "REST API"]
-            },
-            {
-                "imgUrl": "https://i.ibb.co/gmcFS9w/Text-Utils.png",
-                "title": "Text Utility",
-                "desc": "Streamline and enhance your text with our all-in-one Text Utility website - simplifying tasks from formatting to analysis.",
-                "techs": [
-                    "React",
-                    "Bootstrap"
-                ],
-                "iframeUrl": "https://ritwickrajmakhal.github.io/TextUtils/",
-                "categories":["WEB DEVELOPMENT"]
             }
         ]
     }
