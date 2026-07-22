@@ -37,7 +37,7 @@ export const hero = {
   primaryCta: { label: 'See selected work', href: '/#work' },
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
-    { k: '2', v: 'Live AI products' },
+    { k: '3', v: 'AI products shipped' },
     { k: 'MERN + AI', v: 'Full-stack + automation' },
     { k: 'Global', v: 'Remote · USD' },
   ],
@@ -90,87 +90,12 @@ export const services = {
 }
 
 // ─── PROJECTS ──────────────────────────────────────────────────
-// Each project has a homepage card + a full case-study page at /work/<slug>.
-// `cover` / gallery `src` are null → a labelled placeholder renders so you can
-// see exactly where to drop screenshots, GIFs, or video embeds.
-// `tint` colors the placeholder gradient. Fill TODOs when you have assets/links.
+// Projects now live one-per-file in data/projects/. Each has its own
+// data shape and its own bespoke page under pages/work/, so a case
+// study is never forced into a layout that does not fit it.
+// Re-exported here so the homepage keeps importing from content.js.
 
-export const projects = [
-  {
-    slug: 'ai-voice-chat-assistant',
-    title: 'AI Voice & Chat Assistant',
-    kind: 'AI Product',
-    year: '2026',
-    status: 'LIVE',
-    role: 'Design, engineering & deployment',
-    tint: 'ember',
-    summary:
-      'A 24/7 voice + chat assistant that answers questions, qualifies leads, and books appointments — embeds on any website in one line.',
-    cover: null, // TODO: /work/voicebot-cover.jpg
-    links: { demo: 'https://getparlix.com', github: null, caseStudy: '/work/ai-voice-chat-assistant' },
-    tags: ['LLM APIs', 'Node.js', 'Web widget', 'Voice'],
-    overview:
-      'Most small teams lose hours every week answering the same questions and chasing leads after hours. This assistant handles both — over voice and chat — in the business’s own tone, and hands off to a human when it should.',
-    challenge:
-      'Make an assistant that feels human, never sleeps, works on any tech stack with a single embed, and books real appointments — without hallucinating outside the business’s knowledge.',
-    approach: [
-      'Grounded the model on the business’s own content so answers stay accurate and on-brand.',
-      'Built a one-line embeddable widget that drops onto any site — no framework lock-in.',
-      'Wired appointment booking and lead capture straight into the conversation flow.',
-      'Added graceful human hand-off and full transcripts for every conversation.',
-    ],
-    features: [
-      { k: 'Voice + text', v: 'Natural two-way conversations' },
-      { k: 'Lead capture', v: 'Qualifies and routes automatically' },
-      { k: 'One-line embed', v: 'Works on any stack' },
-      { k: 'Grounded', v: 'Trained on your own content' },
-    ],
-    outcome:
-      'A live, always-on front desk that captures leads and books meetings around the clock — and a flagship demo that shows exactly what an AI agent can do for a business.',
-    gallery: [
-      { src: null, ratio: '16/10', caption: 'Widget in action on a live site' }, // TODO
-      { src: null, ratio: '1/1', caption: 'Chat flow — lead qualification' }, // TODO
-      { src: null, ratio: '1/1', caption: 'Voice call transcript view' }, // TODO
-    ],
-  },
-  {
-    slug: 'seo-ranking-agent',
-    title: 'SEO Ranking Agent',
-    kind: 'AI Product',
-    year: '2026',
-    status: 'LIVE',
-    role: 'Design & engineering',
-    tint: 'green',
-    summary:
-      'An autonomous agent that researches keywords, audits pages, and drafts optimized content so businesses climb search rankings without an agency.',
-    cover: null, // TODO
-    links: { demo: 'http://187.77.19.74:8090/', github: null, caseStudy: '/work/seo-ranking-agent' },
-    tags: ['LLM APIs', 'n8n', 'Node.js', 'SEO'],
-    overview:
-      'SEO is high-leverage but time-consuming: research, audits, briefs, drafts, tracking. This agent runs that pipeline end-to-end and puts a human in the loop only where it matters.',
-    challenge:
-      'Turn a messy, manual SEO workflow into a repeatable pipeline that produces genuinely useful, publish-ready output — not generic AI filler.',
-    approach: [
-      'Chained keyword + SERP research into structured content briefs.',
-      'Automated on-page audits that flag concrete, prioritized fixes.',
-      'Generated drafts from the briefs, kept a human approval step before publishing.',
-      'Tracked rankings over time to close the loop and re-prioritize.',
-    ],
-    features: [
-      { k: 'Research', v: 'Keyword + SERP analysis' },
-      { k: 'Audits', v: 'Prioritized on-page fixes' },
-      { k: 'Drafting', v: 'Brief-driven content' },
-      { k: 'Tracking', v: 'Rank monitoring' },
-    ],
-    outcome:
-      'A working agent that compresses days of SEO busywork into an automated pipeline — and a clear upsell for automation clients who want growth on autopilot.',
-    gallery: [
-      { src: null, ratio: '16/10', caption: 'Agent dashboard / run output' }, // TODO
-      { src: null, ratio: '1/1', caption: 'Keyword research view' }, // TODO
-      { src: null, ratio: '1/1', caption: 'On-page audit report' }, // TODO
-    ],
-  },
-]
+export { projects } from './projects/index.js'
 
 export const about = {
   eyebrow: 'About',
