@@ -100,12 +100,24 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`)
+      const errorDetail =
+        typeof data.error === 'string'
+          ? data.error
+          : data.error?.message || (data.error ? JSON.stringify(data.error) : '')
+      if (!res.ok) throw new Error(errorDetail || `Request failed: ${res.status}`)
       if (data.ok !== true) throw new Error('The mail server did not confirm the message.')
       setDelivery(data)
       setStatus('sent')
     } catch (error) {
-      setErrorMessage(error.message || 'The message could not be sent.')
+      const message =
+        error instanceof Error
+          ? error.message
+          : typeof error === 'string'
+          ? error
+          : error && typeof error === 'object'
+          ? error.message || JSON.stringify(error)
+          : 'The message could not be sent.'
+      setErrorMessage(message)
       setStatus('error')
     }
   }
