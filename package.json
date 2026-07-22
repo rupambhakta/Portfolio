@@ -1,5 +1,32 @@
 {
+  "name": "rupam-bhakta-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Rupam Bhakta — AI Automation Engineer & Full-Stack Developer portfolio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:singlefile": "cross-env SINGLEFILE=1 vite build --outDir dist-single --emptyOutDir"
+  },
   "dependencies": {
-    "framer-motion": "^12.42.2"
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.408.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.5",
+    "vite-plugin-singlefile": "^2.0.2"
   }
 }
