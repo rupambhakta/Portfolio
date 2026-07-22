@@ -43,16 +43,17 @@ export const hero = {
   ],
 }
 
+// `icon` is a lucide-react name — see the ICONS map in components/Marquee.jsx.
 export const marqueeItems = [
-  'AI Agents',
-  'Workflow Automation',
-  'Voice & Chat Bots',
-  'SEO Agents',
-  'MERN Apps',
-  'Next.js',
-  'n8n',
-  'Real-time Systems',
-  'API Integrations',
+  { label: 'AI Agents', icon: 'Bot' },
+  { label: 'Workflow Automation', icon: 'Workflow' },
+  { label: 'Voice & Chat Bots', icon: 'Mic' },
+  { label: 'SEO Agents', icon: 'TrendingUp' },
+  { label: 'MERN Apps', icon: 'Boxes' },
+  { label: 'Next.js', icon: 'Triangle' },
+  { label: 'n8n', icon: 'Waypoints' },
+  { label: 'Real-time Systems', icon: 'Activity' },
+  { label: 'API Integrations', icon: 'Webhook' },
 ]
 
 export const services = {
