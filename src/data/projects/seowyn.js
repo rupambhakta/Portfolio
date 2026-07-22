@@ -4,7 +4,7 @@
 
 // Imported so Vite fingerprints it and the build fails on a bad path.
 // `coverRatio` is the file's real aspect ratio, so nothing crops.
-import cover from '../../assets/seowyn/main.png'
+import cover from '../../assets/Seowyn/main.png'
 
 export default {
   slug: 'seowyn',
