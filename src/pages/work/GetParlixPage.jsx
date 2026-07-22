@@ -1,13 +1,14 @@
 // GetParlix — SaaS platform layout: cost-of-the-problem stat band, audience
 // grid, feature wall, integrations table, security, scale numbers, and a
 // grouped stack breakdown with the role each technology plays.
+import { motion } from 'framer-motion'
 import { Check, Lock, ShieldCheck } from 'lucide-react'
 import getparlix from '../../data/projects/getparlix.js'
+import { EXPO } from '../../lib/motion.js'
 import { Reveal, MonoLabel } from '../../components/ui.jsx'
 import Media from '../../components/Media.jsx'
 import { icon } from '../../components/case/icons.js'
 import {
-  BackLink,
   CardGrid,
   CaseCta,
   CaseHero,
@@ -25,12 +26,28 @@ const p = getparlix
 
 export default function GetParlixPage({ next }) {
   return (
-    <article className="relative z-10 pt-28 sm:pt-32">
+    <article className="relative z-10 pt-20 sm:pt-24">
       <div className="u-wrap">
-        <BackLink />
-
-        <div className="mt-8">
-          <CaseHero p={p}>
+        <div>
+          <CaseHero
+            p={p}
+            aside={
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: EXPO }}
+              >
+                <Media
+                  src={p.heroShot.src}
+                  ratio={p.heroShot.ratio}
+                  tint={p.tint}
+                  caption={p.heroShot.caption}
+                  rounded="rounded-2xl"
+                  className="mx-auto max-w-[320px] lg:mx-0"
+                />
+              </motion.div>
+            }
+          >
             <MetaRow items={p.meta} />
           </CaseHero>
         </div>

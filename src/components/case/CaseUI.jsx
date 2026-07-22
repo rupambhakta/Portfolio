@@ -3,25 +3,30 @@
 // common visual language, not a common layout.
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react'
+import { ArrowRight, ExternalLink, Github } from 'lucide-react'
 import { EXPO } from '../../lib/motion.js'
 import { Reveal, MonoLabel } from '../ui.jsx'
 
-export function BackLink() {
+// Page header: kind/year/status → title → tagline → summary → links.
+// `aside` fills the space to the right of the copy on wide screens — pass a
+// screenshot when the project has one worth leading with.
+export function CaseHero({ p, aside, children }) {
   return (
-    <Link
-      to="/#work"
-      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-cream-mut transition-colors hover:text-cream"
-    >
-      <ArrowLeft className="h-4 w-4" /> All work
-    </Link>
+    <div className="border-b border-cream/10 pb-10">
+      <div className={aside ? 'grid gap-10 lg:grid-cols-[1fr_340px] lg:items-center lg:gap-14' : ''}>
+        <div>
+          <CaseHeroCopy p={p} />
+        </div>
+        {aside && <div className="lg:justify-self-end">{aside}</div>}
+      </div>
+      {children}
+    </div>
   )
 }
 
-// Page header: kind/year/status → title → tagline → summary → links.
-export function CaseHero({ p, children }) {
+function CaseHeroCopy({ p }) {
   return (
-    <div className="border-b border-cream/10 pb-10">
+    <>
       <motion.div
         className="u-eyebrow"
         initial={{ opacity: 0, y: 12 }}
@@ -89,9 +94,7 @@ export function CaseHero({ p, children }) {
           </span>
         ))}
       </motion.div>
-
-      {children}
-    </div>
+    </>
   )
 }
 

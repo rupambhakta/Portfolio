@@ -7,7 +7,6 @@ import { Reveal, MonoLabel } from '../../components/ui.jsx'
 import Media from '../../components/Media.jsx'
 import { icon } from '../../components/case/icons.js'
 import {
-  BackLink,
   CaseCta,
   CaseHero,
   ClosingStatement,
@@ -21,11 +20,9 @@ const p = seowyn
 
 export default function SeowynPage({ next }) {
   return (
-    <article className="relative z-10 pt-28 sm:pt-32">
+    <article className="relative z-10 pt-20 sm:pt-24">
       <div className="u-wrap">
-        <BackLink />
-
-        <div className="mt-8">
+        <div>
           <CaseHero p={p}>
             <MetaRow items={p.meta} />
           </CaseHero>

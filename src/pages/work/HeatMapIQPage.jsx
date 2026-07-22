@@ -9,7 +9,6 @@ import { Reveal, MonoLabel } from '../../components/ui.jsx'
 import Media from '../../components/Media.jsx'
 import { icon } from '../../components/case/icons.js'
 import {
-  BackLink,
   Callout,
   CardGrid,
   CaseCta,
@@ -34,13 +33,9 @@ const SEVERITY_STYLE = {
 
 export default function HeatMapIQPage({ next }) {
   return (
-    <article className="relative z-10 pt-28 sm:pt-32">
+    <article className="relative z-10 pt-20 sm:pt-24">
       <div className="u-wrap">
-        <BackLink />
-
-        <div className="mt-8">
-          <CaseHero p={p} />
-        </div>
+        <CaseHero p={p} />
 
         {/* KPI strip — the numbers the case study opens on */}
         <StatBand stats={p.kpis} tone="panel" />

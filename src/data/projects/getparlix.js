@@ -6,6 +6,7 @@
 // and fails the build if a path is wrong. `ratio` matches each file's real
 // aspect ratio so nothing gets cropped.
 import cover from '../../assets/getparlix/getparlix.com_.png'
+import bookingChat from '../../assets/getparlix/appointment-booking.png'
 import voiceInPage from '../../assets/getparlix/voiceCall.png'
 import voiceWidget from '../../assets/getparlix/voiceCall01.png'
 import dashDocuments from '../../assets/getparlix/admin-dashboard1.png'
@@ -188,6 +189,13 @@ export default {
 
   closing:
     'GetParlix transforms an ordinary business website into an always-on, AI-driven experience — one that answers instantly, books appointments in real time, and never lets a customer slip away after hours.',
+
+  // Fills the space beside the page title.
+  heroShot: {
+    src: bookingChat,
+    ratio: '450/642',
+    caption: 'In-chat booking — the assistant taking a date, no forms',
+  },
 
   // Portrait shot of the widget itself — sits beside the "what it is" prose.
   widgetShot: {
