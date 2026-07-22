@@ -2,6 +2,13 @@
 // Source: projects/HeatMapIQ-Case-Study.docx
 // Rendered by pages/work/HeatMapIQPage.jsx — this shape is specific to that page.
 
+// Screenshots are imported so Vite fingerprints them and the build fails on a
+// bad path. Each `ratio` is the file's real aspect ratio, so nothing crops.
+import logo from '../../assets/heatmap/heatMapLogo.png'
+import sharedReport from '../../assets/heatmap/deep-insites.png'
+import analysisCharts from '../../assets/heatmap/anylasis.png'
+import workspace from '../../assets/heatmap/dashboard1.png'
+
 export default {
   slug: 'heatmapiq',
   title: 'HeatMapIQ',
@@ -10,8 +17,12 @@ export default {
   status: 'BUILT',
   role: 'Product design & full-stack engineering',
   tint: 'violet',
-  cover: null, // TODO: /work/heatmapiq-cover.jpg
+  cover: workspace,
+  coverRatio: '1751/907',
   links: { demo: null, github: null }, // TODO: live URL / repo if you want them shown
+
+  // Product mark — sits beside the page title.
+  logo: { src: logo, ratio: '1323/383', alt: 'HeatMapIQ logo' },
   tags: ['React', 'FastAPI', 'PostgreSQL', 'Recharts', 'Playwright'],
 
   tagline: 'Turn website heatmaps into a ranked list of fixes.',
@@ -138,9 +149,17 @@ export default {
 
   closing: 'HeatMapIQ — see behaviour, improve results.',
 
-  gallery: [
-    { src: null, ratio: '16/10', caption: 'Report view — severity-ranked issues' }, // TODO
-    { src: null, ratio: '1/1', caption: 'Scroll depth & attention charts' }, // TODO
-    { src: null, ratio: '1/1', caption: 'Shared read-only report with progress' }, // TODO
-  ],
+  // Placed inline next to the sections they illustrate, rather than pooled in
+  // a gallery at the end. Order of prominence: cover (workspace) → signals
+  // charts → shared report.
+  signalsShot: {
+    src: analysisCharts,
+    ratio: '1786/912',
+    caption: 'Scroll reach and attention-by-depth, under a severity-tagged recommendation',
+  },
+  reportShot: {
+    src: sharedReport,
+    ratio: '1887/907',
+    caption: 'A shared read-only report — summary, headline numbers, and the running fix count',
+  },
 }

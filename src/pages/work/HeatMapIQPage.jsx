@@ -35,13 +35,33 @@ export default function HeatMapIQPage({ next }) {
   return (
     <article className="relative z-10 pt-20 sm:pt-24">
       <div className="u-wrap">
-        <CaseHero p={p} />
+        <CaseHero
+          p={p}
+          aside={
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: EXPO }}
+              /* White panel: the mark is dark navy, so it needs a light plate
+                 to stay legible in the ember and dark themes. */
+              className="rounded-2xl border border-cream/10 bg-white p-6 shadow-sm"
+            >
+              <img src={p.logo.src} alt={p.logo.alt} className="mx-auto w-full max-w-[280px]" />
+            </motion.div>
+          }
+        />
 
         {/* KPI strip — the numbers the case study opens on */}
         <StatBand stats={p.kpis} tone="panel" />
 
         <Reveal className="mt-10">
-          <Media src={p.cover} ratio="16/9" tint={p.tint} caption={p.cover ? null : 'Report view — ranked issues'} rounded="rounded-3xl" />
+          <Media
+            src={p.cover}
+            ratio={p.coverRatio || '16/9'}
+            tint={p.tint}
+            caption={p.cover ? 'The workspace — pages grouped under a project, teammates invited by role' : 'Report view — ranked issues'}
+            rounded="rounded-3xl"
+          />
         </Reveal>
 
         {/* Overview */}
@@ -106,6 +126,17 @@ export default function HeatMapIQPage({ next }) {
           <Reveal>
             <p className="mt-6 max-w-[68ch] leading-relaxed text-cream-dim">{p.signals.outro}</p>
           </Reveal>
+
+          {/* The charts those three signals produce */}
+          <Reveal>
+            <Media
+              src={p.signalsShot.src}
+              ratio={p.signalsShot.ratio}
+              tint={p.tint}
+              caption={p.signalsShot.caption}
+              className="mt-8"
+            />
+          </Reveal>
         </Section>
 
         {/* Three steps */}
@@ -156,12 +187,15 @@ export default function HeatMapIQPage({ next }) {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2">
-          <Media src={p.gallery[0]?.src} ratio={p.gallery[0]?.ratio} tint={p.tint} caption={p.gallery[0]?.caption} className="sm:col-span-2" />
-          {p.gallery.slice(1).map((g, i) => (
-            <Media key={i} src={g.src} ratio={g.ratio} tint={p.tint} caption={g.caption} />
-          ))}
-        </div>
+        <Reveal>
+          <Media
+            src={p.reportShot.src}
+            ratio={p.reportShot.ratio}
+            tint={p.tint}
+            caption={p.reportShot.caption}
+            className="mt-6"
+          />
+        </Reveal>
 
         {/* Payoff */}
         <Section label={p.payoff.label} title={p.payoff.title} intro={p.payoff.intro}>
