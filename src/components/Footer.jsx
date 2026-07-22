@@ -10,11 +10,11 @@ export default function Footer() {
     <footer className="relative z-10 border-t border-cream/10 bg-base-900">
       <div className="u-wrap py-16">
         {/* Big wordmark CTA */}
-        <SectionLink id="contact" className="group block">
+        <Link to="/contact" className="group block">
           <span className="u-display block text-[15vw] leading-[0.82] text-transparent [-webkit-text-stroke:1.4px_#4a4230] transition-colors duration-500 group-hover:[-webkit-text-stroke:1.4px_#ff5a1f] sm:text-[13vw]">
             LET’S BUILD
           </span>
-        </SectionLink>
+        </Link>
 
         <div className="mt-12 flex flex-col gap-8 border-t border-cream/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -27,15 +27,21 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {nav.map((item) => (
-              <SectionLink
-                key={item.label}
-                id={idOf(item.href)}
-                className="text-sm text-cream-dim transition-colors hover:text-cream"
-              >
-                {item.label}
-              </SectionLink>
-            ))}
+            {nav.map((item) =>
+              item.to ? (
+                <Link key={item.label} to={item.to} className="text-sm text-cream-dim transition-colors hover:text-cream">
+                  {item.label}
+                </Link>
+              ) : (
+                <SectionLink
+                  key={item.label}
+                  id={idOf(item.href)}
+                  className="text-sm text-cream-dim transition-colors hover:text-cream"
+                >
+                  {item.label}
+                </SectionLink>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-2">

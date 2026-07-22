@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Calendar } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Mail, Github, Linkedin, Calendar } from 'lucide-react'
 import { contact, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, DisplayLines, MonoLabel } from './ui.jsx'
@@ -21,21 +22,27 @@ export default function Contact() {
 
           <Reveal delay={0.15}>
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <motion.a
-                href={contact.primaryCta.href}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2, ease: EXPO }}
-                className="u-btn-primary w-full px-7 py-3.5 text-base sm:w-auto"
-              >
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2, ease: EXPO }} className="w-full sm:w-auto">
+                <Link to={contact.formCta.to} className="u-btn-primary w-full px-7 py-3.5 text-base">
+                  {contact.formCta.label}
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </motion.div>
+              <a href={contact.primaryCta.href} className="u-btn-ghost w-full px-7 py-3.5 text-base sm:w-auto">
                 <Calendar className="h-5 w-5" />
                 {contact.primaryCta.label}
-              </motion.a>
-              <a href={`mailto:${profile.email}`} className="u-btn-ghost w-full px-7 py-3.5 text-base sm:w-auto">
-                <Mail className="h-5 w-5" />
-                {profile.email}
               </a>
             </div>
+          </Reveal>
+
+          <Reveal delay={0.18}>
+            <a
+              href={`mailto:${profile.email}`}
+              className="mt-6 inline-flex items-center gap-2 text-sm text-cream-mut transition-colors hover:text-cream"
+            >
+              <Mail className="h-4 w-4" />
+              {profile.email}
+            </a>
           </Reveal>
 
           <Reveal delay={0.2}>

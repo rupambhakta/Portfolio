@@ -8,6 +8,21 @@ import SectionLink from './SectionLink.jsx'
 
 const idOf = (href) => href.split('#')[1] || ''
 
+// Nav entries are either a route (`to`) or a homepage section (`href: '/#id'`).
+function NavItem({ item, className, onClick }) {
+  if (item.to)
+    return (
+      <Link to={item.to} className={className} onClick={onClick}>
+        {item.label}
+      </Link>
+    )
+  return (
+    <SectionLink id={idOf(item.href)} className={className} onClick={onClick}>
+      {item.label}
+    </SectionLink>
+  )
+}
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -38,19 +53,17 @@ export default function Nav() {
 
           <nav className="hidden items-center gap-7 md:flex">
             {nav.map((item) => (
-              <SectionLink
+              <NavItem
                 key={item.label}
-                id={idOf(item.href)}
+                item={item}
                 className="text-sm text-cream-dim transition-colors hover:text-cream"
-              >
-                {item.label}
-              </SectionLink>
+              />
             ))}
           </nav>
 
-          <SectionLink id="contact" className="hidden md:inline-flex">
+          <Link to="/contact" className="hidden md:inline-flex">
             <span className="u-btn-primary">Let’s talk</span>
-          </SectionLink>
+          </Link>
 
           <button
             className="grid h-10 w-10 place-items-center rounded-xl border border-cream/15 bg-cream/5 text-cream md:hidden"
@@ -74,18 +87,16 @@ export default function Nav() {
           >
             <div className="flex flex-col gap-1 rounded-2xl border border-cream/10 bg-base-850/95 p-3 backdrop-blur-md">
               {nav.map((item) => (
-                <SectionLink
+                <NavItem
                   key={item.label}
-                  id={idOf(item.href)}
+                  item={item}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-4 py-3 text-sm text-cream-dim transition-colors hover:bg-cream/5 hover:text-cream"
-                >
-                  {item.label}
-                </SectionLink>
+                />
               ))}
-              <SectionLink id="contact" onClick={() => setOpen(false)} className="mt-1">
+              <Link to="/contact" onClick={() => setOpen(false)} className="mt-1">
                 <span className="u-btn-primary w-full">Let’s talk</span>
-              </SectionLink>
+              </Link>
             </div>
           </motion.div>
         )}

@@ -16,11 +16,13 @@ export const profile = {
   available: true,
 }
 
+// `href: '/#id'` → smooth-scrolls to a homepage section.
+// `to: '/path'`  → a real route (react-router link).
 export const nav = [
   { label: 'Work', href: '/#work' },
   { label: 'Services', href: '/#services' },
   { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export const hero = {
@@ -215,4 +217,36 @@ export const contact = {
   title: ['Let’s automate', 'the boring stuff.'],
   sub: "Tell me what’s eating your team’s time. I’ll tell you if an AI agent or automation can fix it — free, no pressure.",
   primaryCta: { label: 'Book a free call', href: '#' }, // TODO: booking link
+  formCta: { label: 'Send me a message', to: '/contact' },
+}
+
+// ─── CONTACT PAGE (/contact) ───────────────────────────────────
+// `endpoint`: paste a form-backend URL (Formspree, Basin, Web3Forms,
+// your own /api route…) that accepts a JSON POST. Leave it empty and
+// the form falls back to opening a pre-filled email in the visitor’s
+// mail client — so it works with zero setup either way.
+
+export const contactPage = {
+  eyebrow: 'Contact',
+  title: ['Tell me what’s', 'slowing you down.'],
+  sub: 'Fill this in and I’ll reply within one business day with a straight answer: whether automation is worth it for you, roughly what it takes, and what it costs.',
+  endpoint: '', // TODO: form backend URL (e.g. https://formspree.io/f/xxxxxxx)
+  responseTime: 'Usually replies within 24 hours',
+  aside: {
+    title: 'What happens next',
+    steps: [
+      { k: '01', v: 'I read your message and reply within one business day.' },
+      { k: '02', v: 'A short call — 20 minutes — to dig into the workflow.' },
+      { k: '03', v: 'You get a written scope, timeline, and fixed price.' },
+    ],
+    note: 'Prefer email? Write to me directly — same inbox, same reply time.',
+  },
+  projectTypes: [
+    'AI agent / assistant',
+    'Workflow automation',
+    'SEO & growth agent',
+    'Full-stack web app',
+    'Something else',
+  ],
+  budgets: ['Under $1k', '$1k — $3k', '$3k — $10k', '$10k+', 'Not sure yet'],
 }
