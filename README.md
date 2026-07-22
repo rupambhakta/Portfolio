@@ -85,19 +85,25 @@ falling back to a "email me directly" message if the request fails.
 Every project has a `cover` and a `gallery` array. They render a **labelled placeholder** until you add a real asset —
 so you can see exactly where each image/video goes.
 
-1. Drop files into `public/` (e.g. `public/work/getparlix-1.jpg`).
-2. In that project's data file, set the `src`:
+Drop files into `src/assets/<project>/` and **import** them in that project's data file — Vite fingerprints them for
+caching and the build fails loudly if a path is wrong (see `data/projects/getparlix.js`):
 
 ```js
-cover: '/work/getparlix-cover.jpg',
-gallery: [
-  { src: '/work/getparlix-1.jpg', ratio: '16/10', caption: 'Chat widget on a client site' },
-  { src: '/work/getparlix-demo.mp4', type: 'video', ratio: '16/9', caption: 'Live demo' },
-  { src: '/work/getparlix-2.jpg', ratio: '1/1', caption: 'Booking flow' },
-],
+import cover from '../../assets/getparlix/getparlix.com_.png'
+import shot1 from '../../assets/getparlix/voiceCall.png'
+
+export default {
+  cover,
+  coverRatio: '2888/1714',
+  gallery: [{ src: shot1, ratio: '1897/912', caption: 'Voice call running over the live site' }],
+}
 ```
 
-`type: 'video'` renders a `<video>` player; anything else renders an `<img>`. `ratio` keeps layout stable while assets load.
+Files in `public/` also work if you'd rather reference them by URL (`cover: '/work/x.jpg'`) — no import needed.
+
+Set `ratio` to the image's **real** dimensions (`width/height`) so nothing gets cropped: images render with
+`object-cover`, so a mismatched ratio silently trims edges. `type: 'video'` renders a `<video>` player instead.
+A `src` of `null` renders a labelled placeholder, so unfilled slots are visible rather than blank.
 
 ### Add a project
 

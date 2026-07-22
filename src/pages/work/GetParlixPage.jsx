@@ -36,19 +36,37 @@ export default function GetParlixPage({ next }) {
         </div>
 
         <Reveal className="mt-10">
-          <Media src={p.cover} ratio="16/9" tint={p.tint} caption={p.cover ? null : 'Hero screenshot or product demo'} rounded="rounded-3xl" />
+          <Media
+            src={p.cover}
+            ratio={p.coverRatio || '16/9'}
+            tint={p.tint}
+            caption={p.cover ? null : 'Hero screenshot or product demo'}
+            rounded="rounded-3xl"
+          />
         </Reveal>
 
-        {/* What it is — prose with a pulled-out one-liner */}
+        {/* What it is — prose alongside the widget itself */}
         <Section label={p.what.label} title={p.what.title}>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-10">
-            {p.what.body.map((t, i) => (
-              <Reveal key={i} delay={i * 0.06}>
-                <p className="text-lg leading-relaxed text-cream-dim">{t}</p>
-              </Reveal>
-            ))}
+          <div className="mt-6 grid items-start gap-8 lg:grid-cols-[1fr_300px] lg:gap-12">
+            <div className="space-y-6">
+              {p.what.body.map((t, i) => (
+                <Reveal key={i} delay={i * 0.06}>
+                  <p className="text-lg leading-relaxed text-cream-dim">{t}</p>
+                </Reveal>
+              ))}
+              <PullQuote>{p.what.pull}</PullQuote>
+            </div>
+            <Reveal delay={0.1}>
+              <Media
+                src={p.widgetShot.src}
+                ratio={p.widgetShot.ratio}
+                tint={p.tint}
+                caption={p.widgetShot.caption}
+                rounded="rounded-2xl"
+                className="mx-auto max-w-[300px]"
+              />
+            </Reveal>
           </div>
-          <PullQuote>{p.what.pull}</PullQuote>
         </Section>
 
         {/* The cost of the gap */}
@@ -91,11 +109,23 @@ export default function GetParlixPage({ next }) {
           <DefinitionList items={p.dashboard.items} columns={2} />
         </Section>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2">
-          <Media src={p.gallery[0]?.src} ratio={p.gallery[0]?.ratio} tint={p.tint} caption={p.gallery[0]?.caption} className="sm:col-span-2" />
-          {p.gallery.slice(1).map((g, i) => (
-            <Media key={i} src={g.src} ratio={g.ratio} tint={p.tint} caption={g.caption} />
-          ))}
+        {/* Screens — the voice call in place, then the two dashboard views */}
+        <div className="mt-14">
+          <Reveal>
+            <MonoLabel>
+              <span className="text-ember">✳</span> Screens
+            </MonoLabel>
+          </Reveal>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <Reveal className="sm:col-span-2">
+              <Media src={p.gallery[0].src} ratio={p.gallery[0].ratio} tint={p.tint} caption={p.gallery[0].caption} />
+            </Reveal>
+            {p.gallery.slice(1).map((g, i) => (
+              <Reveal key={i} delay={i * 0.06}>
+                <Media src={g.src} ratio={g.ratio} tint={p.tint} caption={g.caption} />
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         {/* Business value */}

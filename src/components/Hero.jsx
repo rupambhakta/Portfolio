@@ -99,6 +99,16 @@ export default function Hero() {
               className="group relative flex aspect-[16/11] items-end overflow-hidden rounded-xl border border-cream/10 p-3 transition-transform duration-300 hover:-translate-y-1"
               style={{ background: TINTS[p.tint] || TINTS.ember }}
             >
+              {/* Falls back to the tint gradient behind it when a project has
+                  no cover yet. */}
+              {p.cover && (
+                <img
+                  src={p.cover}
+                  alt=""
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              )}
               {/* The scrim is dark in every theme, so this text stays light —
                   themed foreground colors would go near-black here. */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />

@@ -2,6 +2,15 @@
 // Source: projects/GetParlix_Project_Showcase.docx
 // Rendered by pages/work/GetParlixPage.jsx — this shape is specific to that page.
 
+// Screenshots live in src/assets/ and are imported so Vite fingerprints them
+// and fails the build if a path is wrong. `ratio` matches each file's real
+// aspect ratio so nothing gets cropped.
+import cover from '../../assets/getparlix/getparlix.com_.png'
+import voiceInPage from '../../assets/getparlix/voiceCall.png'
+import voiceWidget from '../../assets/getparlix/voiceCall01.png'
+import dashDocuments from '../../assets/getparlix/admin-dashboard1.png'
+import dashScheduling from '../../assets/getparlix/admin-dashboard2-customize-appointmont-booking.png'
+
 export default {
   slug: 'getparlix',
   title: 'GetParlix',
@@ -10,7 +19,8 @@ export default {
   status: 'LIVE',
   role: 'Designed, developed & deployed end-to-end',
   tint: 'ember',
-  cover: null, // TODO: /work/getparlix-cover.jpg
+  cover,
+  coverRatio: '2888/1714',
   links: { demo: 'https://getparlix.com', github: null },
   tags: ['React 19', 'Node.js', 'OpenAI Realtime', 'pgvector', 'WebSockets'],
 
@@ -179,9 +189,16 @@ export default {
   closing:
     'GetParlix transforms an ordinary business website into an always-on, AI-driven experience — one that answers instantly, books appointments in real time, and never lets a customer slip away after hours.',
 
+  // Portrait shot of the widget itself — sits beside the "what it is" prose.
+  widgetShot: {
+    src: voiceWidget,
+    ratio: '456/756',
+    caption: 'Voice mode — the assistant listening on a live site',
+  },
+
   gallery: [
-    { src: null, ratio: '16/10', caption: 'Chat widget live on a client site' }, // TODO
-    { src: null, ratio: '1/1', caption: 'In-chat booking — slot picker' }, // TODO
-    { src: null, ratio: '1/1', caption: 'Admin dashboard — conversations' }, // TODO
+    { src: voiceInPage, ratio: '1897/912', caption: 'Voice call running over the live site' },
+    { src: dashDocuments, ratio: '1902/925', caption: 'Admin dashboard — documents that train the assistant' },
+    { src: dashScheduling, ratio: '1900/912', caption: 'Scheduling logic, slot duration & working hours' },
   ],
 }
