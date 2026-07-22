@@ -94,10 +94,10 @@ export function CaseLink({ to, children = 'Read the case study' }) {
   )
 }
 
-// Tint gradients used across placeholder covers
+// Tint gradients used across placeholder covers — per-theme values in index.css
 export const TINTS = {
-  ember: 'linear-gradient(135deg,#3a2a17,rgba(255,90,31,0.28))',
-  green: 'linear-gradient(135deg,#26301f,rgba(123,216,143,0.22))',
-  violet: 'linear-gradient(135deg,#241a2a,rgba(139,123,255,0.24))',
-  cyan: 'linear-gradient(135deg,#17272c,rgba(34,184,212,0.22))',
+  ember: 'var(--tint-ember)',
+  green: 'var(--tint-green)',
+  violet: 'var(--tint-violet)',
+  cyan: 'var(--tint-cyan)',
 }

@@ -108,13 +108,13 @@ export default function SeowynPage({ next }) {
           <div className="mt-8 rounded-2xl border border-cream/10 bg-base-850 p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-cream/10 pb-4">
               <MonoLabel>Run output</MonoLabel>
-              <span className="font-mono text-[11px] text-emerald-300">{p.deliverables.items.length} / {p.deliverables.items.length} complete</span>
+              <span className="font-mono text-[11px] text-ok">{p.deliverables.items.length} / {p.deliverables.items.length} complete</span>
             </div>
             <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
               {p.deliverables.items.map((d, i) => (
                 <Reveal key={i} delay={(i % 6) * 0.04}>
                   <li className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-ok-strong" />
                     <span className="text-cream-dim">{d}</span>
                   </li>
                 </Reveal>
@@ -180,7 +180,7 @@ function CompareRow({ before, after }) {
         <span className="text-sm leading-relaxed text-cream-mut">{before}</span>
       </div>
       <div className="flex gap-3 bg-base-850 px-5 py-4">
-        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+        <Check className="mt-0.5 h-4 w-4 shrink-0 text-ok-strong" />
         <span className="text-sm leading-relaxed text-cream">{after}</span>
       </div>
     </>

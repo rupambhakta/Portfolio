@@ -27,8 +27,8 @@ function ProjectRow({ p, i }) {
             <span>·</span>
             <span>{p.year}</span>
             {p.status === 'LIVE' && (
-              <span className="flex items-center gap-1.5 text-emerald-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
+              <span className="flex items-center gap-1.5 text-ok">
+                <span className="h-1.5 w-1.5 rounded-full bg-ok-strong" /> Live
               </span>
             )}
           </div>

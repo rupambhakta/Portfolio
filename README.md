@@ -3,9 +3,28 @@
 A distinctive, **person-first, multi-page** portfolio for **Rupam Bhakta — AI Automation Engineer & Full-Stack Developer**.
 Built with **React (Vite) + React Router + Tailwind CSS + Framer Motion**.
 
-**Design direction — "Grain & Bold":** warm near-black canvas, film-grain texture, oversized **Anton** display type,
-an **ember-orange** accent, **Inter** body, **JetBrains Mono** labels. Editorial, energetic, and deliberately *not* the
-generic dark-neon-gradient AI look. Fonts are **self-hosted** (bundled via `@fontsource`) — the site works offline.
+**Design direction — "Grain & Bold":** film-grain texture, oversized **Anton** display type, an **ember-orange**
+accent, **Inter** body, **JetBrains Mono** labels. Editorial, energetic, and deliberately *not* the generic
+dark-neon-gradient AI look. Fonts are **self-hosted** (bundled via `@fontsource`) — the site works offline.
+
+## Themes
+
+Three palettes, switchable from the nav (the pill next to "Let's talk"), remembered in `localStorage`:
+
+| Theme | `data-theme` | What it is |
+|-------|--------------|------------|
+| **Ember** (default) | `ember` | The original warm near-black canvas |
+| **Light** | `light` | Paper white, deepened ember so the accent stays readable |
+| **Dark** | `dark` | True black, neutral greys |
+
+All three are driven by CSS variables in `src/index.css` (`:root[data-theme='…']`) which Tailwind reads through
+`rgb(var(--…) / <alpha-value>)` — so components use plain `text-cream` / `bg-base-850` / `text-ember` classes and
+never name a raw color. Tokens: `base-950…700` (surfaces), `cream` / `-dim` / `-mut` (text), `ember` / `-soft` /
+`-deep` (accent), `ink` (text on ember fills), `ok` / `ok-strong`, `warn`.
+
+**To retheme**, edit the variable block — nothing else. Every text/background pair in all three themes clears
+WCAG AA (most clear AAA); keep it that way if you change values. The theme is applied by a small inline script in
+`index.html` before first paint, so there's no flash of the wrong palette.
 
 ---
 
@@ -103,14 +122,15 @@ src/
     projects/             ← one file per project + index.js (order/registry)
   main.jsx                ← app entry + HashRouter
   App.jsx                 ← routes + layout (nav, footer, grain, scroll progress)
-  index.css               ← theme tokens, fonts, grain, utilities
-  lib/       motion.js, scroll.js
+  index.css               ← the three theme palettes, fonts, grain, utilities
+  lib/       motion.js, scroll.js, theme.js
   pages/
     Home.jsx, ContactPage.jsx
     ProjectPage.jsx       ← resolves /work/:slug → the project's own page
     work/                 ← GetParlixPage, SeowynPage, HeatMapIQPage
   components/
     Nav, Footer, Background, Marquee, ScrollManager, SectionLink
+    ThemeToggle.jsx  ← the three-way theme switcher in the nav
     Hero, WorkGrid, Services, About, Contact   (home sections)
     ContactForm.jsx  ← validation, submit states, honeypot, mailto fallback
     Media.jsx        ← image/video + labelled placeholder

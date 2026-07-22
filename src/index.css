@@ -10,8 +10,128 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* ─────────────────────────────────────────────────────────────
+   THEMES — three palettes, one set of class names.
+   Colors are `R G B` triplets so Tailwind can apply opacity
+   (e.g. bg-cream/10). Switch with data-theme on <html>:
+     ember (default)  · the original warm near-black
+     light            · paper white
+     dark             · true black, neutral
+   ───────────────────────────────────────────────────────────── */
+
+:root,
+:root[data-theme='ember'] {
   color-scheme: dark;
+
+  --c-base-950: 19 16 9;
+  --c-base-900: 23 19 9;
+  --c-base-850: 28 23 16;
+  --c-base-800: 34 28 18;
+  --c-base-700: 44 37 23;
+
+  --c-fg: 244 239 228;
+  --c-fg-dim: 214 207 193; /* lifted for legibility */
+  --c-fg-mut: 179 169 150; /* lifted for legibility */
+
+  --c-ember: 255 90 31;
+  --c-ember-soft: 255 122 69;
+  --c-ember-deep: 224 67 15;
+  --c-ink: 22 12 4;
+
+  --c-ok: 110 231 183;
+  --c-ok-strong: 52 211 153;
+  --c-warn: 251 191 36;
+
+  --stroke-mut: #4a4230;
+  --grain-opacity: 0.05;
+  --scroll-thumb: 58 49 32;
+
+  --glow-1: rgba(255, 90, 31, 0.16);
+  --glow-2: rgba(255, 122, 69, 0.08);
+  --glow-3: rgba(255, 90, 31, 0.05);
+  --media-sheen: rgba(255, 255, 255, 0.12);
+  --hover-surface: #241a10;
+
+  --tint-ember: linear-gradient(135deg, #3a2a17, rgba(255, 90, 31, 0.28));
+  --tint-green: linear-gradient(135deg, #26301f, rgba(123, 216, 143, 0.22));
+  --tint-violet: linear-gradient(135deg, #241a2a, rgba(139, 123, 255, 0.24));
+  --tint-cyan: linear-gradient(135deg, #17272c, rgba(34, 184, 212, 0.22));
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --c-base-950: 255 255 255;
+  --c-base-900: 250 248 244;
+  --c-base-850: 244 241 234;
+  --c-base-800: 236 232 223;
+  --c-base-700: 222 217 205;
+
+  --c-fg: 20 17 12;
+  --c-fg-dim: 63 56 46;
+  --c-fg-mut: 107 97 84;
+
+  --c-ember: 194 65 12; /* deepened so it stays readable on white */
+  --c-ember-soft: 234 88 12;
+  --c-ember-deep: 154 52 18;
+  --c-ink: 255 255 255; /* text on ember fills */
+
+  --c-ok: 4 120 87;
+  --c-ok-strong: 5 150 105;
+  --c-warn: 146 64 14;
+
+  --stroke-mut: #a79e8d;
+  --grain-opacity: 0.035;
+  --scroll-thumb: 202 195 182;
+
+  --glow-1: rgba(255, 122, 69, 0.14);
+  --glow-2: rgba(255, 154, 108, 0.1);
+  --glow-3: rgba(255, 122, 69, 0.06);
+  --media-sheen: rgba(255, 255, 255, 0.45);
+  --hover-surface: #fdf1ea;
+
+  --tint-ember: linear-gradient(135deg, #ffe6d6, rgba(255, 90, 31, 0.32));
+  --tint-green: linear-gradient(135deg, #e2f1e6, rgba(16, 145, 92, 0.28));
+  --tint-violet: linear-gradient(135deg, #eae5f7, rgba(110, 92, 220, 0.26));
+  --tint-cyan: linear-gradient(135deg, #ddeff4, rgba(14, 148, 178, 0.26));
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --c-base-950: 8 8 10;
+  --c-base-900: 14 14 17;
+  --c-base-850: 20 20 24;
+  --c-base-800: 27 27 32;
+  --c-base-700: 38 38 45;
+
+  --c-fg: 247 248 249;
+  --c-fg-dim: 210 214 219;
+  --c-fg-mut: 165 171 179;
+
+  --c-ember: 255 106 51;
+  --c-ember-soft: 255 138 92;
+  --c-ember-deep: 224 77 22;
+  --c-ink: 11 11 13;
+
+  --c-ok: 52 211 153;
+  --c-ok-strong: 52 211 153;
+  --c-warn: 251 191 36;
+
+  --stroke-mut: #3b3b44;
+  --grain-opacity: 0.04;
+  --scroll-thumb: 52 52 60;
+
+  --glow-1: rgba(255, 106, 51, 0.12);
+  --glow-2: rgba(255, 138, 92, 0.06);
+  --glow-3: rgba(255, 106, 51, 0.04);
+  --media-sheen: rgba(255, 255, 255, 0.1);
+  --hover-surface: #221913;
+
+  --tint-ember: linear-gradient(135deg, #2a1a12, rgba(255, 106, 51, 0.26));
+  --tint-green: linear-gradient(135deg, #12211a, rgba(52, 211, 153, 0.2));
+  --tint-violet: linear-gradient(135deg, #191527, rgba(139, 123, 255, 0.22));
+  --tint-cyan: linear-gradient(135deg, #101f26, rgba(34, 184, 212, 0.2));
 }
 
 html {
@@ -19,16 +139,17 @@ html {
 }
 html,
 body {
-  background-color: #131009;
+  background-color: rgb(var(--c-base-950));
 }
 body {
   @apply font-sans text-cream-dim antialiased;
   overflow-x: hidden;
+  transition: background-color 0.35s ease;
 }
 
 ::selection {
-  background: #ff5a1f;
-  color: #160c04;
+  background: rgb(var(--c-ember));
+  color: rgb(var(--c-ink));
 }
 
 /* Scrollbar */
@@ -36,15 +157,15 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #131009;
+  background: rgb(var(--c-base-950));
 }
 ::-webkit-scrollbar-thumb {
-  background: #3a3120;
+  background: rgb(var(--scroll-thumb));
   border-radius: 999px;
-  border: 2px solid #131009;
+  border: 2px solid rgb(var(--c-base-950));
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff5a1f;
+  background: rgb(var(--c-ember));
 }
 
 @layer components {
@@ -62,23 +183,30 @@ body {
   }
   .u-outline {
     color: transparent;
-    /* ember — same value as `text-ember` on the "busywork" word */
-    -webkit-text-stroke: 1.4px #ff5a1f;
+    -webkit-text-stroke: 1.4px rgb(var(--c-ember));
   }
   .u-btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300;
   }
   .u-btn-primary {
-    @apply u-btn bg-ember text-[#160c04] hover:bg-ember-soft;
+    @apply u-btn bg-ember text-ink hover:bg-ember-soft;
   }
   .u-btn-ghost {
-    @apply u-btn border border-cream/20 text-cream hover:border-cream/50 hover:bg-cream/5;
+    @apply u-btn border border-cream/25 text-cream hover:border-cream/50 hover:bg-cream/5;
   }
   .u-chip {
-    @apply rounded-full border border-cream/12 bg-cream/[0.04] px-3 py-1 font-mono text-[11px] text-cream-dim;
+    @apply rounded-full border border-cream/15 bg-cream/[0.05] px-3 py-1 font-mono text-[11px] text-cream-dim;
   }
   .u-card {
     @apply rounded-2xl border border-cream/10 bg-base-850;
+  }
+  /* Warm hover for surface tiles — opaque per theme, so it works on top of
+     the hairline grid backgrounds without washing out. */
+  .u-hover-tint {
+    transition: background-color 0.3s ease;
+  }
+  .u-hover-tint:hover {
+    background-color: var(--hover-surface);
   }
 }
 
@@ -89,7 +217,7 @@ body {
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 

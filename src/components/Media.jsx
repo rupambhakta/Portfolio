@@ -25,17 +25,20 @@ export default function Media({ src, type = 'image', ratio = '16/10', caption, t
         className={`relative flex items-center justify-center overflow-hidden border border-dashed border-cream/15 ${rounded}`}
         style={{ ...style, background: TINTS[tint] || TINTS.ember }}
       >
-        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.12),transparent_55%)]" />
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{ background: 'radial-gradient(circle at 70% 20%, var(--media-sheen), transparent 55%)' }}
+        />
         <div className="relative flex flex-col items-center gap-2 px-4 text-center">
           {type === 'video' ? (
-            <PlayCircle className="h-8 w-8 text-cream/70" />
+            <PlayCircle className="h-8 w-8 text-cream/80" />
           ) : (
-            <ImageIcon className="h-8 w-8 text-cream/70" />
+            <ImageIcon className="h-8 w-8 text-cream/80" />
           )}
-          <span className="font-mono text-[11px] uppercase tracking-wider text-cream/70">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-cream/80">
             {type === 'video' ? 'Add video' : 'Add image'}
           </span>
-          {caption && <span className="max-w-[22ch] text-[12px] leading-snug text-cream/55">{caption}</span>}
+          {caption && <span className="max-w-[22ch] text-[12px] leading-snug text-cream/70">{caption}</span>}
         </div>
       </div>
     </figure>

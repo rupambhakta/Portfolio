@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion'
 import { services } from '../data/content.js'
-import { EXPO } from '../lib/motion.js'
 import { Reveal, DisplayLines, MonoLabel, Stagger, StaggerItem } from './ui.jsx'
 
 export default function Services() {
@@ -20,11 +18,7 @@ export default function Services() {
         <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 sm:grid-cols-2">
           {services.items.map((s) => (
             <StaggerItem key={s.no}>
-              <motion.div
-                whileHover={{ backgroundColor: 'rgba(255,90,31,0.06)' }}
-                transition={{ duration: 0.3, ease: EXPO }}
-                className="group h-full bg-base-850 p-8"
-              >
+              <div className="u-hover-tint group h-full bg-base-850 p-8">
                 <div className="flex items-baseline justify-between">
                   <span className="font-mono text-sm text-ember">{s.no}</span>
                   <span className="font-mono text-[11px] uppercase tracking-wider text-cream-mut">Service</span>
@@ -36,7 +30,7 @@ export default function Services() {
                     <span key={t} className="u-chip">{t}</span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </StaggerItem>
           ))}
         </Stagger>

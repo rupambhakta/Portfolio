@@ -27,7 +27,7 @@ const p = heatmapiq
 
 const SEVERITY_STYLE = {
   Critical: 'border-ember/60 bg-ember/15 text-ember-soft',
-  High: 'border-amber-400/40 bg-amber-400/10 text-amber-300',
+  High: 'border-warn/40 bg-warn/10 text-warn',
   Medium: 'border-cream/20 bg-cream/[0.06] text-cream-dim',
   Low: 'border-cream/12 bg-cream/[0.03] text-cream-mut',
 }
@@ -120,7 +120,7 @@ export default function HeatMapIQPage({ next }) {
               <Reveal key={s.k} delay={i * 0.06}>
                 <li className="h-full rounded-2xl border border-cream/10 bg-base-900 p-6">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-8 w-8 place-items-center rounded-full bg-ember font-mono text-[13px] font-semibold text-[#160c04]">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-ember font-mono text-[13px] font-semibold text-ink">
                       {i + 1}
                     </span>
                     <h3 className="font-display text-lg uppercase tracking-wide text-cream">{s.k}</h3>
@@ -143,12 +143,12 @@ export default function HeatMapIQPage({ next }) {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <MonoLabel>Fix tracking</MonoLabel>
               <span className="font-mono text-[12px] text-cream-dim">
-                <span className="text-emerald-300">7</span> of 12 fixed
+                <span className="text-ok">7</span> of 12 fixed
               </span>
             </div>
             <div className="mt-4 h-2 overflow-hidden rounded-full bg-cream/10">
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-ember to-emerald-400"
+                className="h-full rounded-full bg-gradient-to-r from-ember to-ok-strong"
                 initial={{ width: 0 }}
                 whileInView={{ width: '58%' }}
                 viewport={{ once: true, margin: '-60px' }}

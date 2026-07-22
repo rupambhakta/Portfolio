@@ -27,8 +27,8 @@ export default function ContactPage() {
           >
             <span className="text-ember">✳</span> {contactPage.eyebrow}
             {profile.available && (
-              <span className="flex items-center gap-1.5 text-emerald-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Taking new projects
+              <span className="flex items-center gap-1.5 text-ok">
+                <span className="h-1.5 w-1.5 rounded-full bg-ok-strong" /> Taking new projects
               </span>
             )}
           </motion.div>

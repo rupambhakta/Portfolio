@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import { nav, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import SectionLink from './SectionLink.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const idOf = (href) => href.split('#')[1] || ''
 
@@ -61,18 +62,24 @@ export default function Nav() {
             ))}
           </nav>
 
-          <Link to="/contact" className="hidden md:inline-flex">
-            <span className="u-btn-primary">Let’s talk</span>
-          </Link>
+          <div className="hidden items-center gap-3 md:flex">
+            <ThemeToggle />
+            <Link to="/contact">
+              <span className="u-btn-primary">Let’s talk</span>
+            </Link>
+          </div>
 
-          <button
-            className="grid h-10 w-10 place-items-center rounded-xl border border-cream/15 bg-cream/5 text-cream md:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle size="sm" />
+            <button
+              className="grid h-10 w-10 place-items-center rounded-xl border border-cream/15 bg-cream/5 text-cream"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 

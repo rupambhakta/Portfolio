@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="u-wrap py-16">
         {/* Big wordmark CTA */}
         <Link to="/contact" className="group block">
-          <span className="u-display block text-[15vw] leading-[0.82] text-transparent [-webkit-text-stroke:1.4px_#4a4230] transition-colors duration-500 group-hover:[-webkit-text-stroke:1.4px_#ff5a1f] sm:text-[13vw]">
+          <span className="u-display block text-[15vw] leading-[0.82] text-transparent [-webkit-text-stroke:1.4px_var(--stroke-mut)] transition-colors duration-500 group-hover:[-webkit-text-stroke:1.4px_rgb(var(--c-ember))] sm:text-[13vw]">
             LET’S BUILD
           </span>
         </Link>

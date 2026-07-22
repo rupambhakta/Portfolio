@@ -90,8 +90,8 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute right-3 top-3 z-10">
                 {p.status === 'LIVE' && (
-                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase text-emerald-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
+                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase text-ok">
+                    <span className="h-1.5 w-1.5 rounded-full bg-ok-strong" /> Live
                   </span>
                 )}
               </div>

@@ -10,6 +10,19 @@
       content="Rupam Bhakta builds AI agents, automations, and full-stack apps that save growing teams hours every week. Selected work, case studies, and services."
     />
     <meta name="theme-color" content="#131009" />
+    <!-- Apply the saved theme before first paint so there is no flash. -->
+    <script>
+      (function () {
+        var t = 'ember'
+        try {
+          var s = localStorage.getItem('rb-theme')
+          if (s === 'ember' || s === 'light' || s === 'dark') t = s
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', t)
+        var m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.setAttribute('content', t === 'light' ? '#ffffff' : t === 'dark' ? '#08080a' : '#131009')
+      })()
+    </script>
     <meta property="og:title" content="Rupam Bhakta — AI Automation Engineer & Full-Stack Developer" />
     <meta property="og:description" content="I build AI systems that run the busywork — agents, automations, and full-stack apps." />
     <meta property="og:type" content="website" />

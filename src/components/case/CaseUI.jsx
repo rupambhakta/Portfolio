@@ -30,8 +30,8 @@ export function CaseHero({ p, children }) {
       >
         <span className="text-ember">◆</span> {p.kind} <span className="text-ember/70">/</span> {p.year}
         {p.status === 'LIVE' ? (
-          <span className="flex items-center gap-1.5 text-emerald-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
+          <span className="flex items-center gap-1.5 text-ok">
+            <span className="h-1.5 w-1.5 rounded-full bg-ok-strong" /> Live
           </span>
         ) : (
           <span className="text-cream-mut">{p.status}</span>
