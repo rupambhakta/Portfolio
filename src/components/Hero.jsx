@@ -17,7 +17,19 @@ function Word({ seg }) {
   )
 }
 
+// The strip fills one row up to five projects, then wraps. Class names are
+// written out in full so Tailwind can see them.
+const LG_COLS = {
+  1: 'lg:grid-cols-1',
+  2: 'lg:grid-cols-2',
+  3: 'lg:grid-cols-3',
+  4: 'lg:grid-cols-4',
+  5: 'lg:grid-cols-5',
+}
+
 export default function Hero() {
+  const cols = LG_COLS[Math.min(projects.length, 5)] || LG_COLS[5]
+
   return (
     <section className="relative z-10 pt-32 sm:pt-40">
       <div className="u-wrap">
@@ -75,7 +87,7 @@ export default function Hero() {
 
         {/* Film-strip of projects */}
         <motion.div
-          className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2"
+          className={`mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 ${cols}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.75, ease: EXPO }}
@@ -87,15 +99,17 @@ export default function Hero() {
               className="group relative flex aspect-[16/11] items-end overflow-hidden rounded-xl border border-cream/10 p-3 transition-transform duration-300 hover:-translate-y-1"
               style={{ background: TINTS[p.tint] || TINTS.ember }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              {/* The scrim is dark in every theme, so this text stays light —
+                  themed foreground colors would go near-black here. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
               <div className="absolute right-3 top-3 z-10">
                 {p.status === 'LIVE' && (
-                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase text-ok">
-                    <span className="h-1.5 w-1.5 rounded-full bg-ok-strong" /> Live
+                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase text-emerald-200 [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
                   </span>
                 )}
               </div>
-              <span className="relative z-10 font-mono text-[11px] leading-tight text-cream">{p.title}</span>
+              <span className="relative z-10 font-mono text-[11px] font-medium leading-tight text-white">{p.title}</span>
             </Link>
           ))}
         </motion.div>
