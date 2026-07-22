@@ -2,6 +2,10 @@
 // Source: projects/Seowyn_Project_Documentation.docx
 // Rendered by pages/work/SeowynPage.jsx — this shape is specific to that page.
 
+// Imported so Vite fingerprints it and the build fails on a bad path.
+// `coverRatio` is the file's real aspect ratio, so nothing crops.
+import cover from '../../assets/seowyn/main.png'
+
 export default {
   slug: 'seowyn',
   title: 'Seowyn',
@@ -10,7 +14,9 @@ export default {
   status: 'LIVE',
   role: 'Design & full-stack engineering',
   tint: 'green',
-  cover: null, // TODO: /work/seowyn-cover.jpg
+  cover,
+  coverRatio: '1918/777',
+  coverCaption: 'Workspace — every site added, with at-a-glance health and pending work',
   links: { demo: 'http://187.77.19.74:8090/', github: null },
   tags: ['Next.js', 'FastAPI', 'Multi-agent AI', 'Celery + Redis', 'Playwright'],
 

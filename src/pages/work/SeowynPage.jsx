@@ -29,7 +29,13 @@ export default function SeowynPage({ next }) {
         </div>
 
         <Reveal className="mt-10">
-          <Media src={p.cover} ratio="16/9" tint={p.tint} caption={p.cover ? null : 'Run dashboard — agents working live'} rounded="rounded-3xl" />
+          <Media
+            src={p.cover}
+            ratio={p.coverRatio || '16/9'}
+            tint={p.tint}
+            caption={p.cover ? p.coverCaption : 'Run dashboard — agents working live'}
+            rounded="rounded-3xl"
+          />
         </Reveal>
 
         {/* Overview */}
