@@ -62,7 +62,8 @@ body {
   }
   .u-outline {
     color: transparent;
-    -webkit-text-stroke: 1.4px #4a4230;
+    /* ember — same value as `text-ember` on the "busywork" word */
+    -webkit-text-stroke: 1.4px #ff5a1f;
   }
   .u-btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300;
