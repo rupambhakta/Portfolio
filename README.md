@@ -35,6 +35,7 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # production build → /dist
 npm run preview    # preview the production build
+npm start          # serve /dist and /api/contact with Nodemailer
 ```
 
 ## Pages / routing
@@ -69,16 +70,17 @@ Search `TODO` for the things to fill in:
 |------|-------|
 | Booking link (Calendly/Cal.com) for "Book a call" / "Let's talk" | `content.js` → `profile.bookingUrl`, `contact.primaryCta.href` |
 | LinkedIn URL | `content.js` → `profile.linkedin` |
-| Contact-form backend (Formspree/Basin/your API) | `content.js` → `contactPage.endpoint` |
+| Contact-form SMTP settings | `.env` / `.env.example` |
 | Email | `content.js` → `profile.email` |
 | Live demo / repo URLs | `projects/<name>.js` → `links.demo`, `links.github` |
 | Screenshots & video | `projects/<name>.js` → `cover`, `gallery[].src` |
 
 ### The contact form
 
-`contactPage.endpoint` is empty by default, so the form composes a pre-filled email and opens the visitor's mail
-client — it works with zero setup. Paste a form-backend URL that accepts a JSON `POST` and it submits there instead,
-falling back to a "email me directly" message if the request fails.
+The contact form posts to `/api/contact`. `server.js` handles that request with Nodemailer and sends it through the
+SMTP values in `.env`. Build the frontend first, then run `npm start` to serve both `/dist` and the API route.
+For production, deploy to a host that can run the Node server or convert `/api/contact` to that host's serverless
+function format; static-only hosting will not send email.
 
 ### Adding project images, videos & demos
 

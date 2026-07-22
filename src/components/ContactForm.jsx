@@ -64,6 +64,8 @@ export default function ContactForm() {
   const [values, setValues] = useState(EMPTY)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [delivery, setDelivery] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const set = (k) => (e) => {
     const value = e.target.value
@@ -74,9 +76,7 @@ export default function ContactForm() {
   async function onSubmit(e) {
     e.preventDefault()
     if (status === 'sending') return
-
-    // Honeypot: bots fill hidden fields. Pretend it worked, send nothing.
-    if (values.website) return setStatus('sent')
+    setErrorMessage('')
 
     const found = validate(values)
     setErrors(found)
@@ -99,9 +99,13 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error(`Request failed: ${res.status}`)
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`)
+      if (data.ok !== true) throw new Error('The mail server did not confirm the message.')
+      setDelivery(data)
       setStatus('sent')
-    } catch {
+    } catch (error) {
+      setErrorMessage(error.message || 'The message could not be sent.')
       setStatus('error')
     }
   }
@@ -118,21 +122,16 @@ export default function ContactForm() {
           <Check className="h-6 w-6" />
         </span>
         <h3 className="u-display mt-5 text-3xl text-cream">Message on its way.</h3>
-        <p className="mt-3 max-w-[46ch] text-cream-dim">
-          Thanks{values.name ? `, ${values.name.split(' ')[0]}` : ''} — I’ll get back to you within one business day.
-          {!contactPage.endpoint && ' If your mail client didn’t open, email me directly at '}
-          {!contactPage.endpoint && (
-            <a href={`mailto:${profile.email}`} className="text-cream underline decoration-ember/60 underline-offset-4">
-              {profile.email}
-            </a>
-          )}
-          {!contactPage.endpoint && '.'}
+        <p className="mt-3 max-w-[52ch] text-cream-dim">
+          Thanks{values.name ? `, ${values.name.split(' ')[0]}` : ''}. I’ll get back to you within one business day.
         </p>
         <button
           type="button"
           onClick={() => {
             setValues(EMPTY)
             setErrors({})
+            setDelivery(null)
+            setErrorMessage('')
             setStatus('idle')
           }}
           className="u-btn-ghost mt-7"
@@ -236,6 +235,7 @@ export default function ContactForm() {
           >
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-ember" />
             <span>
+              {errorMessage && `${errorMessage} `}
               That didn’t go through. Email me at{' '}
               <a href={`mailto:${profile.email}`} className="text-cream underline decoration-ember/60 underline-offset-4">
                 {profile.email}

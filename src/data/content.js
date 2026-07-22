@@ -147,16 +147,14 @@ export const contact = {
 }
 
 // ─── CONTACT PAGE (/contact) ───────────────────────────────────
-// `endpoint`: paste a form-backend URL (Formspree, Basin, Web3Forms,
-// your own /api route…) that accepts a JSON POST. Leave it empty and
-// the form falls back to opening a pre-filled email in the visitor’s
-// mail client — so it works with zero setup either way.
+// `endpoint`: server.js accepts this JSON POST and sends it through
+// Nodemailer using the SMTP values in .env.
 
 export const contactPage = {
   eyebrow: 'Contact',
   title: ['Tell me what’s', 'slowing you down.'],
   sub: 'Fill this in and I’ll reply within one business day with a straight answer: whether automation is worth it for you, roughly what it takes, and what it costs.',
-  endpoint: '', // TODO: form backend URL (e.g. https://formspree.io/f/xxxxxxx)
+  endpoint: '/api/contact',
   responseTime: 'Usually replies within 24 hours',
   aside: {
     title: 'What happens next',
