@@ -42,6 +42,17 @@ function json(res, status, data) {
   res.end(JSON.stringify(data))
 }
 
+function getErrorMessage(error) {
+  if (!error) return 'An unknown error occurred.'
+  if (typeof error === 'string') return error
+  if (error instanceof Error) return error.message
+  try {
+    return String(error.message || error.error || JSON.stringify(error))
+  } catch {
+    return 'An unknown error occurred.'
+  }
+}
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -165,8 +176,9 @@ async function handleContact(req, res) {
     })
     return json(res, 200, { ok: true, messageId: info.messageId, accepted, rejected })
   } catch (error) {
-    console.error('Contact email failed:', error)
-    return json(res, 502, { error: 'Message could not be sent.' })
+    const message = getErrorMessage(error)
+    console.error('Contact email failed:', message, error)
+    return json(res, 502, { error: message || 'Message could not be sent.' })
   }
 }
 
