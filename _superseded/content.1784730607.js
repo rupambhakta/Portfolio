@@ -35,7 +35,7 @@ export const hero = {
   primaryCta: { label: 'See selected work', href: '/#work' },
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
-    { k: '2', v: 'Live AI products' },
+    { k: '4+', v: 'Live / shipped products' },
     { k: 'MERN + AI', v: 'Full-stack + automation' },
     { k: 'Global', v: 'Remote · USD' },
   ],
@@ -104,7 +104,7 @@ export const projects = [
     summary:
       'A 24/7 voice + chat assistant that answers questions, qualifies leads, and books appointments — embeds on any website in one line.',
     cover: null, // TODO: /work/voicebot-cover.jpg
-    links: { demo: 'https://getparlix.com', github: null, caseStudy: '/work/ai-voice-chat-assistant' },
+    links: { demo: '#', github: null, caseStudy: '/work/ai-voice-chat-assistant' }, // TODO: live demo URL
     tags: ['LLM APIs', 'Node.js', 'Web widget', 'Voice'],
     overview:
       'Most small teams lose hours every week answering the same questions and chasing leads after hours. This assistant handles both — over voice and chat — in the business’s own tone, and hands off to a human when it should.',
@@ -141,7 +141,7 @@ export const projects = [
     summary:
       'An autonomous agent that researches keywords, audits pages, and drafts optimized content so businesses climb search rankings without an agency.',
     cover: null, // TODO
-    links: { demo: 'http://187.77.19.74:8090/', github: null, caseStudy: '/work/seo-ranking-agent' },
+    links: { demo: '#', github: null, caseStudy: '/work/seo-ranking-agent' }, // TODO: live demo URL
     tags: ['LLM APIs', 'n8n', 'Node.js', 'SEO'],
     overview:
       'SEO is high-leverage but time-consuming: research, audits, briefs, drafts, tracking. This agent runs that pipeline end-to-end and puts a human in the loop only where it matters.',
@@ -165,6 +165,80 @@ export const projects = [
       { src: null, ratio: '16/10', caption: 'Agent dashboard / run output' }, // TODO
       { src: null, ratio: '1/1', caption: 'Keyword research view' }, // TODO
       { src: null, ratio: '1/1', caption: 'On-page audit report' }, // TODO
+    ],
+  },
+  {
+    slug: 'nextalk',
+    title: 'NexTalk',
+    kind: 'Real-time App',
+    year: '2025',
+    status: 'Full-stack',
+    role: 'Full-stack developer',
+    tint: 'violet',
+    summary:
+      'A real-time messaging platform with live presence, secure OTP auth, and media sharing — built on the MERN stack with Socket.IO.',
+    cover: null, // TODO
+    links: { demo: '#', github: '#', caseStudy: '/work/nextalk' }, // TODO: demo + repo URLs
+    tags: ['MongoDB', 'Express', 'React', 'Node', 'Socket.IO'],
+    overview:
+      'NexTalk is a full-stack chat platform I built to push real-time engineering: instant messaging, live presence, and secure auth, wrapped in a clean, responsive UI.',
+    challenge:
+      'Deliver reliable real-time messaging with secure authentication and media handling — while keeping the UI fast and responsive across devices.',
+    approach: [
+      'Real-time messaging and presence with Socket.IO over a Node/Express backend.',
+      'Secure auth with JWT + OTP verification and bcrypt-hashed credentials.',
+      'Image and media uploads via Cloudinary.',
+      'Responsive, component-driven UI in React + Tailwind CSS.',
+    ],
+    features: [
+      { k: 'Real-time', v: 'Socket.IO messaging + presence' },
+      { k: 'Secure', v: 'JWT + OTP, bcrypt' },
+      { k: 'Media', v: 'Cloudinary uploads' },
+      { k: 'Responsive', v: 'Tailwind UI' },
+    ],
+    outcome:
+      'A complete real-time product that demonstrates end-to-end MERN engineering — from socket infrastructure to secure auth and polished UI.',
+    gallery: [
+      { src: null, ratio: '16/10', caption: 'Chat interface' }, // TODO
+      { src: null, ratio: '1/1', caption: 'Login / OTP flow' }, // TODO
+      { src: null, ratio: '1/1', caption: 'Presence + media sharing' }, // TODO
+    ],
+  },
+  {
+    slug: 'eventure',
+    title: 'Eventure',
+    kind: 'Platform',
+    year: '2025',
+    status: 'Platform',
+    role: 'Full-stack developer',
+    tint: 'cyan',
+    summary:
+      'An event resource management platform connecting property owners and organizers — with booking, check-ins, and QR scanning on Next.js + Strapi.',
+    cover: null, // TODO
+    links: { demo: '#', github: '#', caseStudy: '/work/eventure' }, // TODO: demo + repo URLs
+    tags: ['Next.js', 'Strapi', 'QR', 'CMS'],
+    overview:
+      'Eventure connects property owners with event organizers and handles the logistics in between — resource booking, event check-ins, and on-site QR scanning.',
+    challenge:
+      'Model a two-sided marketplace with real logistics (booking, check-ins, QR) and keep content easy to manage for non-technical admins.',
+    approach: [
+      'Next.js frontend for a fast, SEO-friendly experience.',
+      'Strapi CMS backend so content and resources are easy to manage.',
+      'Resource booking and event check-in flows.',
+      'QR code scanning for fast, reliable on-site check-ins.',
+    ],
+    features: [
+      { k: 'Booking', v: 'Resource reservations' },
+      { k: 'Check-ins', v: 'Event day flow' },
+      { k: 'QR scan', v: 'On-site verification' },
+      { k: 'CMS', v: 'Strapi-managed content' },
+    ],
+    outcome:
+      'A working two-sided platform showing product thinking beyond a single feature — marketplace logic, CMS architecture, and real-world event logistics.',
+    gallery: [
+      { src: null, ratio: '16/10', caption: 'Marketplace / listings' }, // TODO
+      { src: null, ratio: '1/1', caption: 'Booking flow' }, // TODO
+      { src: null, ratio: '1/1', caption: 'QR check-in' }, // TODO
     ],
   },
 ]

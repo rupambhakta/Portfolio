@@ -70,7 +70,7 @@ export default function WorkGrid() {
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-xs text-sm text-cream-mut">
-              The live AI products I’ve designed, built, and shipped. Tap any project for the full story.
+              A few of the AI products and full-stack apps I’ve designed and built. Tap any project for the full story.
             </p>
           </Reveal>
         </div>

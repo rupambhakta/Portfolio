@@ -75,7 +75,7 @@ export default function Hero() {
 
         {/* Film-strip of projects */}
         <motion.div
-          className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2"
+          className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.75, ease: EXPO }}
