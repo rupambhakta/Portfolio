@@ -102,13 +102,6 @@ export default function Hero() {
               {/* The scrim is dark in every theme, so this text stays light —
                   themed foreground colors would go near-black here. */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
-              <div className="absolute right-3 top-3 z-10">
-                {p.status === 'LIVE' && (
-                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase text-emerald-200 [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
-                  </span>
-                )}
-              </div>
               <span className="relative z-10 font-mono text-[11px] font-medium leading-tight text-white">{p.title}</span>
             </Link>
           ))}
