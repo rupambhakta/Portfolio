@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Mail, Github, Linkedin, Calendar } from 'lucide-react'
+import { ArrowRight, Mail, Github, Linkedin, Instagram, Facebook, X, Calendar } from 'lucide-react'
 import { contact, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, DisplayLines, MonoLabel } from './ui.jsx'

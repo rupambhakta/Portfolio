@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Github, Linkedin, Mail, MapPin } from 'lucide-react'
+import { ArrowLeft, Calendar, Github, Linkedin, Mail, Instagram, Facebook, X, MapPin } from 'lucide-react'
 import { contact, contactPage, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, MonoLabel } from '../components/ui.jsx'
@@ -101,11 +101,16 @@ export default function ContactPage() {
                   {[
                     { href: profile.github, icon: Github, label: 'GitHub' },
                     { href: profile.linkedin, icon: Linkedin, label: 'LinkedIn' },
+                    { href: profile.x, icon: X, label: 'X' },
+                    { href: profile.instagram, icon: Instagram, label: 'Instagram' },
+                    { href: profile.facebook, icon: Facebook, label: 'Facebook' },
                   ].map((s) => (
                     <a
                       key={s.label}
                       href={s.href}
                       aria-label={s.label}
+                      target={s.href?.startsWith('http') ? '_blank' : undefined}
+                      rel={s.href?.startsWith('http') ? 'noreferrer' : undefined}
                       className="grid h-11 w-11 place-items-center rounded-xl border border-cream/12 bg-cream/[0.04] text-cream-dim transition-colors hover:border-ember/50 hover:text-cream"
                     >
                       <s.icon className="h-5 w-5" />

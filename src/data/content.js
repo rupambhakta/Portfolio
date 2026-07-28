@@ -10,8 +10,11 @@ export const profile = {
   role: 'AI Automation Engineer · Full-Stack Developer',
   email: 'rupambhakta2020@gmail.com',
   github: 'https://github.com/rupambhakta',
-  linkedin: '#', // TODO: LinkedIn URL
-  bookingUrl: '#contact', // TODO: Calendly / Cal.com link (or keep #contact)
+  linkedin: 'https://www.linkedin.com/in/rupam-bhakta-b622b0222',
+  x: 'https://x.com/rupam_bhakta',
+  instagram: 'https://www.instagram.com/sani.bhakta',
+  facebook: 'https://www.facebook.com/rupam.bhakta.10',
+  bookingUrl: '#contact',
   location: 'India → Worldwide',
   available: true,
 }
