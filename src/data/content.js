@@ -30,6 +30,7 @@ export const nav = [
   { label: 'Work', href: '/#work' },
   { label: 'Services', href: '/#services' },
   { label: 'About', to: '/about' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -51,23 +52,17 @@ export const hero = {
   ],
 }
 
-// The marquee is a tech-logo strip: each item renders its real brand logo in
-// its true brand colour. `icon` is a brand key from components/TechIcon.jsx.
+// `icon` is a lucide-react name - see the ICONS map in components/Marquee.jsx.
 export const marqueeItems = [
-  { label: 'React', icon: 'react' },
-  { label: 'Next.js', icon: 'next' },
-  { label: 'Node.js', icon: 'node' },
-  { label: 'Express', icon: 'express' },
-  { label: 'MongoDB', icon: 'mongodb' },
-  { label: 'PostgreSQL', icon: 'postgresql' },
-  { label: 'Tailwind CSS', icon: 'tailwind' },
-  { label: 'JavaScript', icon: 'javascript' },
-  { label: 'n8n', icon: 'n8n' },
-  { label: 'OpenAI', icon: 'openai' },
-  { label: 'Claude', icon: 'claude' },
-  { label: 'Gemini', icon: 'gemini' },
-  { label: 'Socket.IO', icon: 'socketio' },
-  { label: 'Git / GitHub', icon: 'github' },
+  { label: 'AI Agents', icon: 'Bot' },
+  { label: 'Workflow Automation', icon: 'Workflow' },
+  { label: 'Voice & Chat Bots', icon: 'Mic' },
+  { label: 'SEO Agents', icon: 'TrendingUp' },
+  { label: 'MERN Apps', icon: 'Boxes' },
+  { label: 'Next.js', icon: 'Triangle' },
+  { label: 'n8n', icon: 'Waypoints' },
+  { label: 'Real-time Systems', icon: 'Activity' },
+  { label: 'API Integrations', icon: 'Webhook' },
 ]
 
 export const services = {

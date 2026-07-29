@@ -6,8 +6,10 @@ import Footer from './components/Footer.jsx'
 import ScrollManager from './components/ScrollManager.jsx'
 import Home from './pages/Home.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
-import AboutPage from './pages/AboutPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import BlogPage from './pages/BlogPage.jsx'
+import BlogPostPage from './pages/BlogPostPage.jsx'
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll()
@@ -27,6 +29,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/work/:slug" element={<ProjectPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Home />} />
         </Routes>
