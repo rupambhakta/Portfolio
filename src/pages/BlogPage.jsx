@@ -61,9 +61,13 @@ function Featured({ post }) {
         </div>
         {/* cover */}
         <div className="relative order-1 min-h-[220px] overflow-hidden lg:order-2 lg:min-h-full">
-          <div className="absolute inset-0" style={{ background: TINTS[post.tint] }} />
+          {post.cover ? (
+            <img src={post.cover} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          ) : (
+            <div className="absolute inset-0" style={{ background: TINTS[post.tint] }} />
+          )}
           <div className="absolute inset-0 flex items-end p-7 sm:p-9">
-            <span className="font-display text-[clamp(4rem,12vw,8rem)] leading-none text-cream/85">01</span>
+            <span className="font-display text-[clamp(4rem,12vw,8rem)] leading-none text-cream/85 drop-shadow">01</span>
           </div>
         </div>
       </Link>
@@ -79,8 +83,12 @@ function PostCard({ post, index }) {
         className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream/10 bg-base-850 transition-colors duration-300 hover:border-cream/25"
       >
         <div className="relative h-40 overflow-hidden">
-          <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]" style={{ background: TINTS[post.tint] }} />
-          <div className="absolute right-4 top-3 font-display text-3xl text-cream/70">{String(index + 2).padStart(2, '0')}</div>
+          {post.cover ? (
+            <img src={post.cover} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+          ) : (
+            <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]" style={{ background: TINTS[post.tint] }} />
+          )}
+          <div className="absolute right-4 top-3 font-display text-3xl text-cream/80 drop-shadow">{String(index + 2).padStart(2, '0')}</div>
         </div>
         <div className="flex flex-1 flex-col p-6">
           <TagLabel post={post} />

@@ -6,6 +6,13 @@
 // Keep the copy human: no em dashes anywhere.
 // ─────────────────────────────────────────────────────────────
 
+// Banner art per post. Swap any of these for your own image (see the banner
+// prompt guide) by dropping a file in assets/blog/ and importing it here.
+import coverVoice from '../assets/blog/voice-assistant-that-books-its-own-meetings.svg'
+import coverAutomation from '../assets/blog/which-tasks-are-worth-automating.svg'
+import coverSeo from '../assets/blog/multi-agent-seo-model-routing.svg'
+import coverShipping from '../assets/blog/shipping-fast-without-shipping-junk.svg'
+
 // Page-level copy for /blog.
 export const blogMeta = {
   eyebrow: 'The Journal',
@@ -24,6 +31,7 @@ export const posts = [
       'A chat and voice agent that answers questions, qualifies leads, and puts real meetings on a calendar. Here is the architecture, the parts that were hard, and the parts that surprised me.',
     tag: 'AI Agents',
     tint: 'ember',
+    cover: coverVoice,
     date: '2026-06-24',
     featured: true,
     author: 'Rupam Bhakta',
@@ -83,6 +91,7 @@ The next step is memory across visits, so a returning lead does not start from z
       'Not everything repetitive should be automated. A simple, honest way to decide what to build, what to leave alone, and how to avoid automating a mess.',
     tag: 'Automation',
     tint: 'cyan',
+    cover: coverAutomation,
     date: '2026-06-10',
     author: 'Rupam Bhakta',
     body: `The fastest way to waste a month is to automate the wrong task really well. I have done it, so now I run every idea through the same short filter before writing a line of code.
@@ -122,6 +131,7 @@ If you can describe the task to a new teammate in two sentences and they could d
       'Seowyn runs a coordinated team of AI agents that audit a site and return a real growth plan. Here is why several models beat one, and how the routing actually works.',
     tag: 'AI Agents',
     tint: 'violet',
+    cover: coverSeo,
     date: '2026-05-28',
     author: 'Rupam Bhakta',
     body: `One model doing everything is simple to build and mediocre at everything. The moment I split the work across specialised agents, quality jumped. Seowyn is the result: a platform where a team of agents audits a site, researches competitors, and hands back a ninety day growth plan with ready-to-use deliverables.
@@ -172,6 +182,7 @@ Multi-agent is not about stacking models for show. It is about matching each uni
       'Speed and quality are not opposites. A short, practical checklist I run before anything I build goes in front of real users.',
     tag: 'Full-Stack',
     tint: 'green',
+    cover: coverShipping,
     date: '2026-05-15',
     author: 'Rupam Bhakta',
     body: `"Move fast" gets a bad name because people hear "skip the basics." That is not it. Moving fast means having a small set of non-negotiables that are so routine they cost you almost nothing, so you can be reckless about everything else.
@@ -223,4 +234,13 @@ export function getPost(slug) {
 // Posts other than `slug`, newest first, for the "keep reading" section.
 export function relatedPosts(slug, n = 2) {
   return posts.filter((p) => p.slug !== slug).slice(0, n)
+}
+
+// Previous (older) and next (newer) post, by list order (newest first).
+export function adjacentPosts(slug) {
+  const i = posts.findIndex((p) => p.slug === slug)
+  return {
+    newer: i > 0 ? posts[i - 1] : null,
+    older: i >= 0 && i < posts.length - 1 ? posts[i + 1] : null,
+  }
 }
