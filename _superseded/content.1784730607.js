@@ -36,7 +36,7 @@ export const hero = {
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
     { k: '4+', v: 'Live / shipped products' },
-    { k: 'MERN + AI', v: 'Full-stack + automation' },
+    { k: 'Python + AI', v: 'Full-stack + automation' },
     { k: 'Global', v: 'Remote · USD' },
   ],
 }
@@ -46,7 +46,7 @@ export const marqueeItems = [
   'Workflow Automation',
   'Voice & Chat Bots',
   'SEO Agents',
-  'MERN Apps',
+  'Postgrace Apps',
   'Next.js',
   'n8n',
   'Real-time Systems',

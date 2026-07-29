@@ -47,7 +47,7 @@ export const hero = {
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
     { k: '3', v: 'AI products shipped' },
-    { k: 'MERN + AI', v: 'Full-stack and automation' },
+    { k: 'Python + AI', v: 'Full-stack and automation' },
     { k: 'Global', v: 'Remote, paid in USD' },
   ],
 }
