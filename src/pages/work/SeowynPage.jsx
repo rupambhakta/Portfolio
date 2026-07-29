@@ -1,11 +1,11 @@
-// Seowyn — pipeline layout: the run is the story. A before/after ledger,
-// a vertical agent pipeline with a connecting rail, and the deliverables
-// rendered as the manifest a completed run hands back.
-import { ArrowRight, Check, X } from 'lucide-react'
+// Seowyn — an image-led case study. The product's own screens carry the
+// explanation: the landing promise, the workspace, then a four-step walkthrough
+// where every claim is backed by the real screen it happens on.
+// Screenshots render inside a browser frame with object-contain, so the FULL
+// image is always visible — nothing is ever cropped.
+import { ArrowRight, Check, X, Lock } from 'lucide-react'
 import seowyn from '../../data/projects/seowyn.js'
 import { Reveal, MonoLabel } from '../../components/ui.jsx'
-import Media from '../../components/Media.jsx'
-import { icon } from '../../components/case/icons.js'
 import {
   CaseCta,
   CaseHero,
@@ -18,27 +18,54 @@ import {
 
 const p = seowyn
 
+// Framed, full-bleed screenshot. object-contain guarantees the whole image
+// shows; the container's aspect-ratio (the file's real ratio) reserves the
+// exact space so there's no layout shift and no letterboxing.
+function Shot({ src, ratio, url, caption, delay = 0 }) {
+  return (
+    <Reveal delay={delay}>
+      <figure>
+        <div className="overflow-hidden rounded-2xl border border-cream/12 bg-base-900 shadow-2xl shadow-black/30">
+          <div className="flex items-center gap-2 border-b border-cream/10 px-4 py-2.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-cream/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-cream/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-cream/15" />
+            {url && (
+              <span className="ml-3 flex min-w-0 items-center gap-1.5 rounded-md bg-base-850 px-2.5 py-1 font-mono text-[11px] text-cream-mut">
+                <Lock className="h-3 w-3 shrink-0" />
+                <span className="truncate">{url}</span>
+              </span>
+            )}
+          </div>
+          <div className="bg-base-950" style={{ aspectRatio: ratio }}>
+            <img src={src} alt={caption || ''} loading="lazy" className="h-full w-full object-contain" />
+          </div>
+        </div>
+        {caption && (
+          <figcaption className="mt-3 flex items-start gap-2 font-mono text-[11px] leading-relaxed text-cream-mut">
+            <span className="text-ember">↳</span>
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    </Reveal>
+  )
+}
+
 export default function SeowynPage({ next }) {
   return (
     <article className="relative z-10 pt-20 sm:pt-24">
       <div className="u-wrap">
-        <div>
-          <CaseHero p={p}>
-            <MetaRow items={p.meta} />
-          </CaseHero>
+        <CaseHero p={p}>
+          <MetaRow items={p.meta} />
+        </CaseHero>
+
+        {/* Cover — the product's landing promise, shown in full */}
+        <div className="mt-10">
+          <Shot src={p.cover} ratio={p.coverRatio} url={p.coverUrl} caption={p.coverCaption} />
         </div>
 
-        <Reveal className="mt-10">
-          <Media
-            src={p.cover}
-            ratio={p.coverRatio || '16/9'}
-            tint={p.tint}
-            caption={p.cover ? p.coverCaption : 'Run dashboard — agents working live'}
-            rounded="rounded-3xl"
-          />
-        </Reveal>
-
-        {/* Overview */}
+        {/* Overview — prose, then the actual workspace it describes */}
         <Section label={p.overview.label} title={p.overview.title}>
           <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-10">
             {p.overview.body.map((t, i) => (
@@ -47,9 +74,12 @@ export default function SeowynPage({ next }) {
               </Reveal>
             ))}
           </div>
+          <div className="mt-10">
+            <Shot src={p.workspace.src} ratio={p.workspace.ratio} url={p.workspace.url} caption={p.workspace.caption} />
+          </div>
         </Section>
 
-        {/* Problem — numbered pain points */}
+        {/* Problem */}
         <Section label={p.problems.label} title={p.problems.title} intro={p.problems.intro}>
           <ul className="mt-8 space-y-4">
             {p.problems.items.map((t, i) => (
@@ -80,30 +110,24 @@ export default function SeowynPage({ next }) {
           </div>
         </Section>
 
-        {/* Pipeline — vertical rail */}
-        <Section label={p.stages.label} title={p.stages.title}>
-          <ol className="mt-10 relative">
-            <span className="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-ember/60 via-ember/25 to-transparent" aria-hidden="true" />
-            {p.stages.items.map((s, i) => {
-              const Icon = icon(s.icon)
-              return (
-                <Reveal key={s.k} delay={i * 0.06}>
-                  <li className="relative flex gap-6 pb-10 last:pb-0">
-                    <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border border-ember/40 bg-base-900 text-ember">
-                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
-                    </span>
-                    <div className="pt-1">
-                      <div className="flex items-baseline gap-3">
-                        <span className="font-mono text-[11px] text-ember">{String(i + 1).padStart(2, '0')}</span>
-                        <h3 className="font-display text-2xl uppercase tracking-wide text-cream">{s.k}</h3>
-                      </div>
-                      <p className="mt-2 max-w-[62ch] leading-relaxed text-cream-dim">{s.v}</p>
-                    </div>
-                  </li>
-                </Reveal>
-              )
-            })}
-          </ol>
+        {/* Walkthrough — the heart of the page: every step backed by its screen */}
+        <Section label={p.walkthrough.label} title={p.walkthrough.title} intro={p.walkthrough.intro}>
+          <div className="mt-12 space-y-16 sm:space-y-20">
+            {p.walkthrough.steps.map((s, i) => (
+              <div key={s.n}>
+                <div className="grid gap-3 lg:grid-cols-[auto_1fr] lg:items-start lg:gap-8">
+                  <span className="font-display text-5xl leading-none text-ember/25 sm:text-6xl">{s.n}</span>
+                  <div className="max-w-[64ch]">
+                    <h3 className="font-display text-2xl uppercase tracking-wide text-cream sm:text-3xl">{s.k}</h3>
+                    <p className="mt-3 text-lg leading-relaxed text-cream-dim">{s.v}</p>
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <Shot src={s.src} ratio={s.ratio} url={s.url} caption={s.caption} />
+                </div>
+              </div>
+            ))}
+          </div>
         </Section>
 
         {/* Deliverables — the run manifest */}
@@ -111,7 +135,9 @@ export default function SeowynPage({ next }) {
           <div className="mt-8 rounded-2xl border border-cream/10 bg-base-850 p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-cream/10 pb-4">
               <MonoLabel>Run output</MonoLabel>
-              <span className="font-mono text-[11px] text-ok">{p.deliverables.items.length} / {p.deliverables.items.length} complete</span>
+              <span className="font-mono text-[11px] text-ok">
+                {p.deliverables.items.length} / {p.deliverables.items.length} complete
+              </span>
             </div>
             <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
               {p.deliverables.items.map((d, i) => (
@@ -125,13 +151,6 @@ export default function SeowynPage({ next }) {
             </ul>
           </div>
         </Section>
-
-        <div className="mt-14 grid gap-4 sm:grid-cols-2">
-          <Media src={p.gallery[0]?.src} ratio={p.gallery[0]?.ratio} tint={p.tint} caption={p.gallery[0]?.caption} className="sm:col-span-2" />
-          {p.gallery.slice(1).map((g, i) => (
-            <Media key={i} src={g.src} ratio={g.ratio} tint={p.tint} caption={g.caption} />
-          ))}
-        </div>
 
         {/* Benefits */}
         <Section label="Key benefits" title="Why it wins">
@@ -152,7 +171,7 @@ export default function SeowynPage({ next }) {
           </ul>
         </Section>
 
-        {/* Stack — one card per layer */}
+        {/* Stack */}
         <Section label="Under the hood" title="Technology stack" intro={p.stack.intro}>
           <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 sm:grid-cols-2">
             {p.stack.groups.map((g) => (

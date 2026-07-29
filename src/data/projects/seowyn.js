@@ -1,10 +1,15 @@
 // Seowyn — autonomous multi-agent SEO growth platform.
-// Source: projects/Seowyn_Project_Documentation.docx
 // Rendered by pages/work/SeowynPage.jsx — this shape is specific to that page.
-
-// Imported so Vite fingerprints it and the build fails on a bad path.
-// `coverRatio` is the file's real aspect ratio, so nothing crops.
+//
+// Images are imported (so Vite fingerprints them and the build fails on a bad
+// path) and each `ratio` is the file's REAL pixel aspect ratio, so screenshots
+// are shown in full — never cropped.
 import cover from '../../assets/Seowyn/main.png'
+import shotWorkspace from '../../assets/Seowyn/your-sites.png'
+import shotStart from '../../assets/Seowyn/start-a-free-trial.png'
+import shotSetup from '../../assets/Seowyn/step-by-step-setup.png'
+import shotTopics from '../../assets/Seowyn/blog-topic-based-on-keyword-research.png'
+import shotDashboard from '../../assets/Seowyn/all-in-one.png'
 
 export default {
   slug: 'seowyn',
@@ -14,9 +19,12 @@ export default {
   status: 'LIVE',
   role: 'Design & full-stack engineering',
   tint: 'green',
+
   cover,
-  coverRatio: '1918/777',
-  coverCaption: 'Workspace — every site added, with at-a-glance health and pending work',
+  coverRatio: '1516/911',
+  coverCaption: 'Seowyn — autonomous SEO that turns one URL into compounding organic traffic.',
+  coverUrl: 'seowyn.com',
+
   links: { demo: 'http://187.77.19.74:8090/', github: null },
   tags: ['Next.js', 'FastAPI', 'Multi-agent AI', 'Celery + Redis', 'Playwright'],
 
@@ -37,6 +45,14 @@ export default {
       'Seowyn is a full-stack platform that replaces a fragmented and expensive workflow with a single autonomous system. Getting a website found on search engines normally means hiring separate specialists for site audits, keyword research, content writing, competitor analysis, and advertising — slow, costly, and hard to coordinate.',
       'The experience is deliberately simple: the user provides a website address, and the platform delivers a comprehensive growth strategy. Beneath that simplicity is a sophisticated system in which multiple AI specialists each own a discipline and pass their findings down the line — much like the members of a real marketing team collaborating on a shared plan.',
     ],
+  },
+
+  // Full-width shot placed right after the overview — the actual product home.
+  workspace: {
+    src: shotWorkspace,
+    ratio: '1917/861',
+    url: 'app.seowyn.com/sites',
+    caption: 'The workspace — every site you add, with an at-a-glance health score and the next actions waiting.',
   },
 
   problems: {
@@ -66,14 +82,49 @@ export default {
     ],
   },
 
-  stages: {
+  // Image-led walkthrough — each step is explained by a full screenshot.
+  walkthrough: {
     label: 'How it works',
-    title: 'Four stages, one run.',
-    items: [
-      { k: 'Enter a website', v: 'The user pastes in any web address, optionally adding context such as target competitors, region, or budget — or lets the system infer it automatically.', icon: 'Link2' },
-      { k: 'The agents get to work', v: 'A team of AI specialists audits the site, researches the market, studies competitors, and builds each part of the strategy in a coordinated sequence.', icon: 'Bot' },
-      { k: 'Watch progress live', v: 'A real-time dashboard shows each specialist moving from pending to running to complete, so the process is transparent rather than a black box.', icon: 'Activity' },
-      { k: 'Download deliverables', v: 'Once the run completes, everything is packaged and ready to use — from the audit and keyword list to drafted articles and campaigns.', icon: 'Download' },
+    title: 'A look inside.',
+    intro:
+      'Four steps take a business from a single URL to a launch-ready growth plan — each one a real screen from the product.',
+    steps: [
+      {
+        n: '01',
+        k: 'Start with one URL',
+        v: 'Create an account and point Seowyn at your first site. A free foundation audit crawls the site, finds the issues, and maps the keywords — no credit card, no setup call.',
+        src: shotStart,
+        ratio: '1816/905',
+        url: 'app.seowyn.com/signup',
+        caption: 'Onboarding — free to start, with a full foundation audit on the first site.',
+      },
+      {
+        n: '02',
+        k: 'A guided setup, not a blank page',
+        v: 'A getting-started checklist walks the user from the audit to a content schedule to Google Search Console. The sidebar opens up the full toolset — insights, analytics, calendar, review queue, blog topics, and social.',
+        src: shotSetup,
+        ratio: '1896/867',
+        url: 'app.seowyn.com/insights',
+        caption: 'Getting started — five guided steps unlock the full dashboard.',
+      },
+      {
+        n: '03',
+        k: 'Keyword research becomes ready-to-write content',
+        v: 'The content agent turns keyword research into long-tail blog topics the site can realistically rank for — ordered most-specific first, each with the reasoning behind it and a one-click “write article”.',
+        src: shotTopics,
+        ratio: '1906/867',
+        url: 'app.seowyn.com/blog-topics',
+        caption: 'Blog Topics — keyword-researched, ranked most-specific first, ready to write.',
+      },
+      {
+        n: '04',
+        k: 'Everything tracked in one place',
+        v: 'A single dashboard follows organic performance and coverage across technical setup, content, keywords, links, and social — so progress is always visible, never a black box.',
+        src: shotDashboard,
+        ratio: '1538/867',
+        url: 'app.seowyn.com/dashboard',
+        caption: 'Insights — organic performance and coverage across every discipline, in one view.',
+      },
     ],
   },
 
@@ -129,10 +180,4 @@ export default {
 
   closing:
     'Seowyn demonstrates what becomes possible when a team of AI specialists is orchestrated to work together — taking a problem that normally requires many people, multiple tools, and weeks of effort, and solving it end-to-end from a single click.',
-
-  gallery: [
-    { src: null, ratio: '16/10', caption: 'Live run dashboard — agents in progress' }, // TODO
-    { src: null, ratio: '1/1', caption: 'Keyword opportunity report' }, // TODO
-    { src: null, ratio: '1/1', caption: 'Generated 90-day roadmap' }, // TODO
-  ],
 }
