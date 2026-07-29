@@ -1,4 +1,4 @@
-// About — the long-form story. Person-first, photo-led, same Grain & Bold
+// About: the long-form story. Person-first, photo-led, same Grain & Bold
 // language as the rest of the site. Photos are WebP and shown at their natural
 // aspect ratio so nothing important is cropped.
 import { Link } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   ArrowRight,
+  ArrowUpRight,
   MapPin,
   GraduationCap,
   Award,
@@ -201,18 +202,40 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        {/* Experience */}
+        {/* Experience - full-width rows, each links to the company */}
         <Section label="Experience" title={['Where I’ve', 'worked.']}>
-          <div className="mt-10 border-l border-cream/12 pl-6">
+          <div className="mt-10 border-t border-cream/10">
             {about.experience.map((e, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="relative pb-9 last:pb-0">
-                  <span className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-base-950 bg-ember" />
-                  <p className="font-mono text-xs text-ember">{e.period}</p>
-                  <h3 className="mt-1 font-display text-2xl text-cream">{e.role}</h3>
-                  <p className="text-sm font-medium text-cream-dim">{e.org}</p>
-                  <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-cream-mut">{e.body}</p>
-                </div>
+              <Reveal key={i} delay={i * 0.06}>
+                <a
+                  href={e.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group grid items-start gap-x-10 gap-y-5 border-b border-cream/10 py-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+                >
+                  {/* Left: the company */}
+                  <div className="flex items-start gap-4">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-cream/12 bg-base-850 font-display text-xl text-ember transition-colors group-hover:border-ember/50">
+                      {e.org.trim().charAt(0)}
+                    </span>
+                    <div>
+                      <p className="font-mono text-xs text-ember">{e.period}</p>
+                      <h3 className="mt-1.5 font-display text-2xl leading-none text-cream">{e.role}</h3>
+                      <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-cream-dim transition-colors group-hover:text-ember">
+                        {e.org}
+                        <ArrowUpRight className="h-3.5 w-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                      </span>
+                    </div>
+                  </div>
+                  {/* Right: what I did there */}
+                  <div className="md:pt-1">
+                    <p className="max-w-[54ch] leading-relaxed text-cream-mut">{e.body}</p>
+                    <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-cream-mut transition-colors group-hover:text-cream">
+                      Visit {e.short || 'website'}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -230,8 +253,16 @@ export default function AboutPage() {
                   className="w-full rounded-2xl border border-cream/10 object-cover"
                   style={{ aspectRatio: '4/3' }}
                 />
-                <figcaption className="mt-3 flex items-center gap-2 font-mono text-[11px] text-cream-mut">
-                  <span className="text-ember">↳</span> {about.education.org}
+                <figcaption className="mt-3 font-mono text-[11px] text-cream-mut">
+                  <a
+                    href={about.education.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 transition-colors hover:text-ember"
+                  >
+                    <span className="text-ember">↳</span> {about.education.org}
+                    <ArrowUpRight className="h-3 w-3" />
+                  </a>
                 </figcaption>
               </figure>
             </Reveal>
@@ -241,7 +272,15 @@ export default function AboutPage() {
                 <div className="u-card p-6">
                   <GraduationCap className="h-5 w-5 text-ember" />
                   <p className="mt-3 font-display text-lg uppercase tracking-wide text-cream">{about.education.degree}</p>
-                  <p className="mt-1 text-sm text-cream-mut">{about.education.org}</p>
+                  <a
+                    href={about.education.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group mt-1 inline-flex items-center gap-1.5 text-sm text-cream-mut transition-colors hover:text-ember"
+                  >
+                    {about.education.org}
+                    <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-opacity group-hover:opacity-100" />
+                  </a>
                   <p className="text-sm text-cream-mut">{about.education.period}</p>
                 </div>
               </Reveal>

@@ -124,18 +124,24 @@ export const about = {
     {
       role: 'Full-Stack Developer & AI Engineer',
       org: 'Micronix System Pvt. Ltd.',
+      short: 'Micronix System',
+      url: 'https://micronixsystem.com/',
       period: 'Nov 2025 to now',
       body: 'Building production full-stack applications and shipping AI-powered features end to end, from the data and APIs to polished, responsive interfaces.',
     },
     {
       role: 'MERN Developer',
       org: 'PCS Global Pvt. Ltd., Kolkata',
+      short: 'PCS Global',
+      url: 'https://www.pcsglobal.in/',
       period: 'Jul 2025 to Oct 2025',
       body: 'Built scalable, responsive full-stack apps, kept performance and reliability tight, and worked with the team through Git.',
     },
     {
       role: 'Software Engineer',
       org: 'ASP OL Media Pvt. Ltd., Jabalpur',
+      short: 'ASP OL Media',
+      url: 'https://www.aspolmedia.in/',
       period: 'Mar 2025 to Jul 2025',
       body: 'Built responsive HTML/CSS email systems, handled DNS and SMTP deliverability, and ran IP warm-up and domain reputation monitoring.',
     },
@@ -143,6 +149,7 @@ export const about = {
   education: {
     degree: 'B.Tech, Computer Science & Engineering',
     org: 'Calcutta Institute of Technology',
+    url: 'https://citulb.in/',
     period: '2025 · CGPA 8.2',
   },
   certifications: [
