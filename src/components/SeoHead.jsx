@@ -39,6 +39,21 @@ const STATIC = {
   },
 }
 
+// Dedicated 120-155 char meta descriptions for the case studies (the project
+// taglines were too short). No em/en dashes.
+const WORK_DESC = {
+  getparlix:
+    'GetParlix is an AI chat and voice assistant I built that answers questions, qualifies leads, and books real meetings on any website, 24/7.',
+  seowyn:
+    'Seowyn is an autonomous multi-agent SEO platform I built that audits a site, researches competitors, and returns a 90 day growth plan.',
+  heatmapiq:
+    'HeatMapIQ is a tool I built that turns raw heatmap exports into a plain-English, severity-ranked list of UX fixes with tracking and sharing.',
+}
+
+function workDescription(p) {
+  return WORK_DESC[p.slug] || clean(p.summary || p.tagline || `${p.title}, a project by ${NAME}.`)
+}
+
 function metaFor(pathname) {
   if (STATIC[pathname]) return STATIC[pathname]
 
@@ -51,11 +66,7 @@ function metaFor(pathname) {
   const work = pathname.match(/^\/work\/(.+)$/)
   if (work) {
     const p = projects.find((x) => x.slug === work[1])
-    if (p)
-      return {
-        title: `${p.title} · Case Study · ${NAME}`,
-        description: clean(p.tagline || p.summary || `${p.title}, a project by ${NAME}.`),
-      }
+    if (p) return { title: `${p.title} · Case Study · ${NAME}`, description: workDescription(p) }
   }
 
   return STATIC['/']
@@ -122,25 +133,54 @@ export default function SeoHead() {
     setMeta('twitter:title', title)
     setMeta('twitter:description', description)
 
-    if (pathname === '/') {
-      setJsonLd('ld-person', {
+    const isHome = pathname === '/'
+    const author = { '@type': 'Person', name: NAME, url: SITE + '/' }
+
+    // Person + WebSite on the home page only.
+    setJsonLd('ld-person', isHome ? {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: NAME,
+      url: SITE + '/',
+      jobTitle: 'Full-Stack Developer & AI Engineer',
+      description: STATIC['/'].description,
+      sameAs: [profile.linkedin, profile.github, profile.x].filter(Boolean),
+    } : null)
+    setJsonLd('ld-website', isHome ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: `${NAME} Portfolio`,
+      url: SITE + '/',
+    } : null)
+
+    // BlogPosting on posts, CreativeWork on case studies.
+    const blogM = pathname.match(/^\/blog\/(.+)$/)
+    const workM = pathname.match(/^\/work\/(.+)$/)
+    const post = blogM && getPost(blogM[1])
+    const proj = workM && projects.find((x) => x.slug === workM[1])
+    if (post) {
+      setJsonLd('ld-page', {
         '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: NAME,
-        url: SITE + '/',
-        jobTitle: 'Full-Stack Developer & AI Engineer',
-        description: STATIC['/'].description,
-        sameAs: [profile.linkedin, profile.github, profile.x].filter(Boolean),
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: clean(post.excerpt),
+        datePublished: post.date,
+        author,
+        publisher: author,
+        mainEntityOfPage: url,
+        url,
       })
-      setJsonLd('ld-website', {
+    } else if (proj) {
+      setJsonLd('ld-page', {
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: `${NAME} Portfolio`,
-        url: SITE + '/',
+        '@type': 'CreativeWork',
+        name: proj.title,
+        description: workDescription(proj),
+        url,
+        creator: author,
       })
     } else {
-      setJsonLd('ld-person', null)
-      setJsonLd('ld-website', null)
+      setJsonLd('ld-page', null)
     }
   }, [pathname])
 
