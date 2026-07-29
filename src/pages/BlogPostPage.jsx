@@ -146,7 +146,7 @@ export default function BlogPostPage() {
                 </div>
                 <p className="mt-1 font-mono text-[12px] uppercase tracking-wider text-cream-mut">{aboutPage.role}</p>
                 <p className="mt-3 max-w-[60ch] text-[0.975rem] leading-relaxed text-cream-mut">
-                  Full-stack developer and AI engineer from Kolkata. I build AI agents, automations, and full-stack products that hand growing teams back the hours they lose to busywork. Here I write about what worked, what broke, and what I would do differently.
+                  Full-stack developer and AI engineer from Kolkata, India. I build AI agents, automations, and full-stack products that hand growing teams back the hours they lose to busywork. Here I write about what worked, what broke, and what I would do differently.
                 </p>
                 <a
                   href={profile.linkedin}
