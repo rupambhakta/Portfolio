@@ -1,7 +1,8 @@
 // Tech logos for the Toolbox section. Brand marks are CC0 SVG data (simple-icons);
 // the OpenAI mark is its public logomark. Non-branded skills fall back to a
-// matching lucide glyph. Everything renders in currentColor so it stays
-// monochrome and readable on the dark canvas, and tints on hover via the parent.
+// matching lucide glyph. Brand marks render in their real colours; marks whose
+// real colour is black (GitHub, Next, Express, Socket.IO, OpenAI) use a light
+// cream so they stay visible on the dark canvas.
 import { Webhook, Coffee, Bot, BrainCircuit, TrendingUp, Boxes } from 'lucide-react'
 
 const BRAND = {
@@ -25,6 +26,27 @@ const BRAND = {
 }
 
 // skills that have no brand logo -> a clean lucide glyph
+// real brand colours (black marks swapped to cream for the dark canvas)
+const COLOR = {
+  react: '#61DAFB',
+  next: '#ECE7DD',
+  tailwind: '#06B6D4',
+  javascript: '#F7DF1E',
+  node: '#5FA04E',
+  express: '#ECE7DD',
+  mongodb: '#47A248',
+  postgresql: '#4169E1',
+  n8n: '#EA4B71',
+  github: '#ECE7DD',
+  strapi: '#4945FF',
+  cloudinary: '#3448C5',
+  socketio: '#ECE7DD',
+  claude: '#D97757',
+  gemini: '#8E75B2',
+  deepseek: '#5786FE',
+  openai: '#ECE7DD',
+}
+
 // skills that have no brand logo -> a clean lucide glyph
 const LUCIDE = {
   rest: Webhook,
@@ -69,7 +91,7 @@ export function TechIcon({ label, name, className = 'h-[18px] w-[18px]' }) {
   const d = BRAND[key]
   if (d) {
     return (
-      <svg viewBox='0 0 24 24' className={className} fill='currentColor' aria-hidden='true'>
+      <svg viewBox='0 0 24 24' className={className} fill={COLOR[key] || 'currentColor'} aria-hidden='true'>
         <path d={d} />
       </svg>
     )

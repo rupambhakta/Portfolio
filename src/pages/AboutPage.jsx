@@ -303,7 +303,11 @@ export default function AboutPage() {
         </Section>
 
         {/* Skills */}
-        <Section label="Toolbox" title={['What I', 'build with.']}>
+        <Section label="Toolbox">
+          <h2 className="u-display mt-4 text-[clamp(1.75rem,4.5vw,3rem)] text-cream">
+            <span className="block">What I</span>
+            <span className="block">build with.</span>
+          </h2>
           <Toolbox groups={about.skills} className="mt-8" />
         </Section>
 
