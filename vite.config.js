@@ -7,7 +7,9 @@ const singleFile = process.env.SINGLEFILE === '1'
 
 export default defineConfig({
   plugins: [react(), ...(singleFile ? [viteSingleFile()] : [])],
-  base: './',
+  // Absolute base so deep routes like /work/seowyn still load /assets/* correctly.
+  // The single-file preview keeps a relative base so it can be opened from disk.
+  base: singleFile ? './' : '/',
   build: {
     target: 'es2018',
     cssCodeSplit: !singleFile,
