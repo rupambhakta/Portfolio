@@ -4,6 +4,7 @@ import Background from './components/Background.jsx'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollManager from './components/ScrollManager.jsx'
+import SeoHead from './components/SeoHead.jsx'
 import Home from './pages/Home.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
@@ -22,6 +23,7 @@ export default function App() {
     <div className="grain relative min-h-screen bg-base-950 text-cream-dim">
       <ScrollProgress />
       <ScrollManager />
+      <SeoHead />
       <Background />
       <Nav />
       <main className="relative">

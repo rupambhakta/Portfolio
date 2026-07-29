@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { posts, blogMeta, allTags, formatDate, readingTime } from '../data/blog.js'
 import { EXPO } from '../lib/motion.js'
-import { Reveal, MonoLabel, DisplayLines, TINTS } from '../components/ui.jsx'
+import { Reveal, MonoLabel, TINTS } from '../components/ui.jsx'
 
 // Solid accent per tint, for category dots / labels (keeps colour off red).
 const DOT = { ember: '#FF6A3D', cyan: '#39C0D9', violet: '#9A8CFF', green: '#7BD88F' }
@@ -117,7 +117,13 @@ export default function BlogPage() {
         <motion.div className="u-eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EXPO }}>
           <span className="text-ember">✳</span> {blogMeta.eyebrow}
         </motion.div>
-        <DisplayLines lines={blogMeta.title} className="mt-4 text-[clamp(2.5rem,9vw,6rem)] text-cream" />
+        <h1 className="u-display mt-4 text-[clamp(2.5rem,9vw,6rem)] text-cream">
+          {blogMeta.title.map((line, i) => (
+            <span key={i} className="block">
+              {line}
+            </span>
+          ))}
+        </h1>
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-cream-dim">{blogMeta.intro}</p>
         </Reveal>
