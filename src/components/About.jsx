@@ -1,4 +1,5 @@
-import { GraduationCap, Award } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { GraduationCap, Award, ArrowUpRight } from 'lucide-react'
 import { about } from '../data/content.js'
 import { Reveal, DisplayLines, MonoLabel } from './ui.jsx'
 
@@ -20,8 +21,18 @@ export default function About() {
             ))}
           </div>
 
-          {/* Skills */}
           <Reveal delay={0.1}>
+            <Link
+              to="/about"
+              className="group mt-6 inline-flex items-center gap-1.5 font-mono text-[13px] font-medium text-cream transition-colors hover:text-ember"
+            >
+              More about me
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </Reveal>
+
+          {/* Skills */}
+          <Reveal delay={0.15}>
             <div className="mt-8 space-y-4">
               {about.skills.map((g) => (
                 <div key={g.label} className="flex flex-col gap-2 border-t border-cream/10 pt-4 sm:flex-row sm:gap-6">

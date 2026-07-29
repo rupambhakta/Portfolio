@@ -3,6 +3,11 @@
 // Search "TODO" for the links / media you should fill in.
 // ─────────────────────────────────────────────────────────────
 
+// About-page photos — converted to WebP so they load fast.
+import aboutPortrait from '../assets/about/my-image.webp'
+import aboutAtWork from '../assets/about/my-image2.webp'
+import aboutCampus from '../assets/about/collage.webp'
+
 export const profile = {
   name: 'Rupam Bhakta',
   first: 'Rupam',
@@ -24,7 +29,7 @@ export const profile = {
 export const nav = [
   { label: 'Work', href: '/#work' },
   { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/#about' },
+  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -105,7 +110,7 @@ export const about = {
   title: ['Engineer who', 'automates the', 'boring parts.'],
   paragraphs: [
     'I’m Rupam — a full-stack developer and automation engineer based in India, working with clients worldwide. I build on the MERN stack and pair it with modern AI tooling to turn slow, manual, repetitive work into reliable systems that run on their own.',
-    'Right now I’m a MERN Developer at PCS Global, shipping scalable web apps. On the side, I build AI agents and automations for businesses that want to move faster without hiring a bigger team.',
+    'Right now I’m a Full-Stack Developer & AI Engineer at Micronix System, building production apps and AI features. On the side, I build AI agents and automations for businesses that want to move faster without hiring a bigger team.',
     'If it’s repetitive, it can probably be automated — let’s find out what that’s worth to you.',
   ],
   skills: [
@@ -117,10 +122,16 @@ export const about = {
   ],
   experience: [
     {
+      role: 'Full-Stack Developer & AI Engineer',
+      org: 'Micronix System Pvt. Ltd.',
+      period: 'Nov 2025 — Present',
+      body: 'Building production full-stack applications and shipping AI-powered features end-to-end — from data and APIs to polished, responsive interfaces.',
+    },
+    {
       role: 'MERN Developer',
       org: 'PCS Global Pvt. Ltd., Kolkata',
-      period: 'Jul 2025 — Present',
-      body: 'Building scalable, responsive full-stack apps; optimizing performance and reliability; Git-based team collaboration.',
+      period: 'Jul 2025 — Oct 2025',
+      body: 'Built scalable, responsive full-stack apps; optimized performance and reliability; Git-based team collaboration.',
     },
     {
       role: 'Software Engineer',
@@ -139,6 +150,40 @@ export const about = {
     'JavaScript & React — Hitesh Choudhary (2025)',
     'Android App Development — Udemy (2023)',
   ],
+}
+
+// ─── ABOUT PAGE (/about) ───────────────────────────────────────
+// The long-form story. Reuses about.experience / skills / education /
+// certifications above so there is a single source of truth.
+export const aboutPage = {
+  eyebrow: 'About me',
+  role: 'Full-Stack Developer & AI Engineer',
+  locationFull: 'Kolkata, India — working worldwide',
+  lead: 'I build software that quietly does the work — full-stack apps and AI systems that take the slow, repetitive parts of a business and run them automatically.',
+  portrait: aboutPortrait,
+  atWork: aboutAtWork,
+  campus: aboutCampus,
+  story: {
+    label: 'My story',
+    title: ['From building websites', 'to building agents.'],
+    body: [
+      'I’m Rupam — a full-stack developer and AI engineer based in Kolkata, India, working with clients and teams around the world. I started out building websites and full MERN-stack applications, and kept coming back to the same question on every project: which parts of this could just run themselves?',
+      'That question pulled me into automation and applied AI. Today I design and ship AI agents, workflow automations, and full-stack products end-to-end — from the database and APIs to the interface people actually touch. I care as much about reliability and clean architecture as I do about the wow factor, because an automation is only useful if a business can trust it to run without babysitting.',
+      'By day I’m a Full-Stack Developer & AI Engineer at Micronix System. Alongside that, I build my own AI products — a 24/7 voice-and-chat assistant, an autonomous SEO growth platform, and more — both to sharpen my craft and to give the people I work with something real they can see, click, and try.',
+    ],
+  },
+  principles: {
+    label: 'How I work',
+    title: ['A few things', 'I believe.'],
+    items: [
+      { k: 'Engineer first', v: 'Real full-stack foundations mean the AI I add is reliable and maintainable — not a demo that breaks the moment it hits production.' },
+      { k: 'Automate the boring', v: 'I use AI to remove busywork, not as a gimmick. If a task is repetitive, it can probably run itself.' },
+      { k: 'Ship end-to-end', v: 'Database, API, interface, deploy — I own the whole path from a rough idea to something you can actually use.' },
+      { k: 'Clear & honest', v: 'Plain-English updates, fast replies, and a straight answer on what’s worth building and what isn’t.' },
+    ],
+  },
+  closing:
+    'If it’s repetitive, it can probably be automated. Tell me what’s slowing your team down — I’ll tell you honestly whether it’s worth building.',
 }
 
 export const contact = {
