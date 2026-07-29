@@ -302,7 +302,7 @@ export default function AboutPage() {
         </Section>
 
         {/* Skills */}
-        <Section label="Toolbox" title={['What I', 'build with.']}>
+        <Section label="Toolbox" title={['What I, build with.']}>
           <div className="mt-8 space-y-4">
             {about.skills.map((g) => (
               <Reveal key={g.label}>
