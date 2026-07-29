@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 font-mono text-xs text-cream-mut">
-          © 2026 Rupam Bhakta — built with React, Vite & Framer Motion.
+          © 2026 Rupam Bhakta. Built with React, Vite & Framer Motion.
         </p>
       </div>
     </footer>

@@ -34,7 +34,7 @@ function mailtoFallback(v) {
   ]
     .filter(Boolean)
     .join('\n')
-  const subject = `New project enquiry — ${v.name}`
+  const subject = `New project enquiry from ${v.name}`
   window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="u-card relative p-6 sm:p-8">
-      {/* Honeypot — hidden from humans, irresistible to bots */}
+      {/* Honeypot - hidden from humans, irresistible to bots */}
       <input
         type="text"
         name="website"

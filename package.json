@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Rupam Bhakta | AI Automation Engineer & Full-Stack Developer portfolio",
+  "description": "Rupam Bhakta, Full-Stack Developer & AI Engineer portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

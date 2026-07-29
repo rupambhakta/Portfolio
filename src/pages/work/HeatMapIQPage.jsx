@@ -1,4 +1,4 @@
-// HeatMapIQ — report layout: KPI strip up top, the three heatmap signals as
+// HeatMapIQ - report layout: KPI strip up top, the three heatmap signals as
 // a triad, severity chips as a visual motif, and a mocked progress bar to
 // echo the "X of Y fixed" tracking the product is built around.
 import { motion } from 'framer-motion'
@@ -51,7 +51,7 @@ export default function HeatMapIQPage({ next }) {
           }
         />
 
-        {/* KPI strip — the numbers the case study opens on */}
+        {/* KPI strip - the numbers the case study opens on */}
         <StatBand stats={p.kpis} tone="panel" />
 
         <Reveal className="mt-10">
@@ -59,7 +59,7 @@ export default function HeatMapIQPage({ next }) {
             src={p.cover}
             ratio={p.coverRatio || '16/9'}
             tint={p.tint}
-            caption={p.cover ? 'The workspace — pages grouped under a project, teammates invited by role' : 'Report view — ranked issues'}
+            caption={p.cover ? 'The workspace: pages grouped under a project, teammates invited by role' : 'Report view: ranked issues'}
             rounded="rounded-3xl"
           />
         </Reveal>
@@ -76,7 +76,7 @@ export default function HeatMapIQPage({ next }) {
           <PullQuote>{p.overview.pull}</PullQuote>
         </Section>
 
-        {/* The challenge — three pain points */}
+        {/* The challenge - three pain points */}
         <Section label={p.problems.label} title={p.problems.title} intro={p.problems.intro}>
           <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 md:grid-cols-3">
             {p.problems.items.map((it, i) => (
@@ -163,7 +163,7 @@ export default function HeatMapIQPage({ next }) {
           <CardGrid items={p.features.items} columns={2} renderIcon={(it) => icon(it.icon)} />
         </Section>
 
-        {/* Fix-tracking motif — a nod to the product's progress bar */}
+        {/* Fix-tracking motif - a nod to the product's progress bar */}
         <Reveal>
           <div className="mt-8 rounded-2xl border border-cream/10 bg-base-850 p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">

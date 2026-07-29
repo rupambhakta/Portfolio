@@ -1,4 +1,4 @@
-// GetParlix — SaaS platform layout: cost-of-the-problem stat band, audience
+// GetParlix - SaaS platform layout: cost-of-the-problem stat band, audience
 // grid, feature wall, integrations table, security, scale numbers, and a
 // grouped stack breakdown with the role each technology plays.
 import { motion } from 'framer-motion'
@@ -62,7 +62,7 @@ export default function GetParlixPage({ next }) {
           />
         </Reveal>
 
-        {/* What it is — prose alongside the widget itself */}
+        {/* What it is - prose alongside the widget itself */}
         <Section label={p.what.label} title={p.what.title}>
           <div className="mt-6 grid items-start gap-8 lg:grid-cols-[1fr_300px] lg:gap-12">
             <div className="space-y-6">
@@ -103,7 +103,7 @@ export default function GetParlixPage({ next }) {
           </Reveal>
         </Section>
 
-        {/* Three steps to live — numbered rail */}
+        {/* Three steps to live - numbered rail */}
         <Section label="How it works" title="Live in three steps.">
           <ol className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-cream/10 bg-cream/10 md:grid-cols-3">
             {p.steps.map((s, i) => (
@@ -126,7 +126,7 @@ export default function GetParlixPage({ next }) {
           <DefinitionList items={p.dashboard.items} columns={2} />
         </Section>
 
-        {/* Screens — the voice call in place, then the two dashboard views */}
+        {/* Screens - the voice call in place, then the two dashboard views */}
         <div className="mt-14">
           <Reveal>
             <MonoLabel>
@@ -146,7 +146,7 @@ export default function GetParlixPage({ next }) {
         </div>
 
         {/* Business value */}
-        <Section label="The payoff" title="Benefits & business value" intro="It converts attention that was previously lost into booked, confirmed revenue — while giving staff their time back.">
+        <Section label="The payoff" title="Benefits & business value" intro="It turns attention that used to slip away into booked, confirmed revenue, and gives staff their time back.">
           <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
             {p.benefits.map((b, i) => (
               <Reveal key={b.k} delay={(i % 3) * 0.05}>
@@ -191,7 +191,7 @@ export default function GetParlixPage({ next }) {
           <StatBand stats={p.scale.stats} note={p.scale.note} tone="panel" />
         </Section>
 
-        {/* Stack — grouped, with the role each piece plays */}
+        {/* Stack - grouped, with the role each piece plays */}
         <Section label="Under the hood" title="Technology stack" intro={p.stack.intro}>
           <div className="mt-8 space-y-8">
             {p.stack.groups.map((g) => (

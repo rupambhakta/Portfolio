@@ -1,8 +1,8 @@
-// Seowyn — an image-led case study. The product's own screens carry the
+// Seowyn - an image-led case study. The product's own screens carry the
 // explanation: the landing promise, the workspace, then a four-step walkthrough
 // where every claim is backed by the real screen it happens on.
 // Screenshots render inside a browser frame with object-contain, so the FULL
-// image is always visible — nothing is ever cropped.
+// image is always visible - nothing is ever cropped.
 import { ArrowRight, Check, X, Lock } from 'lucide-react'
 import seowyn from '../../data/projects/seowyn.js'
 import { Reveal, MonoLabel } from '../../components/ui.jsx'
@@ -60,12 +60,12 @@ export default function SeowynPage({ next }) {
           <MetaRow items={p.meta} />
         </CaseHero>
 
-        {/* Cover — the product's landing promise, shown in full */}
+        {/* Cover - the product's landing promise, shown in full */}
         <div className="mt-10">
           <Shot src={p.cover} ratio={p.coverRatio} url={p.coverUrl} caption={p.coverCaption} />
         </div>
 
-        {/* Overview — prose, then the actual workspace it describes */}
+        {/* Overview - prose, then the actual workspace it describes */}
         <Section label={p.overview.label} title={p.overview.title}>
           <div className="mt-6 grid gap-6 md:grid-cols-2 md:gap-10">
             {p.overview.body.map((t, i) => (
@@ -110,7 +110,7 @@ export default function SeowynPage({ next }) {
           </div>
         </Section>
 
-        {/* Walkthrough — the heart of the page: every step backed by its screen */}
+        {/* Walkthrough - the heart of the page: every step backed by its screen */}
         <Section label={p.walkthrough.label} title={p.walkthrough.title} intro={p.walkthrough.intro}>
           <div className="mt-12 space-y-16 sm:space-y-20">
             {p.walkthrough.steps.map((s, i) => (
@@ -130,7 +130,7 @@ export default function SeowynPage({ next }) {
           </div>
         </Section>
 
-        {/* Deliverables — the run manifest */}
+        {/* Deliverables - the run manifest */}
         <Section label={p.deliverables.label} title={p.deliverables.title} intro={p.deliverables.intro}>
           <div className="mt-8 rounded-2xl border border-cream/10 bg-base-850 p-6 sm:p-8">
             <div className="flex items-center justify-between border-b border-cream/10 pb-4">
@@ -193,7 +193,7 @@ export default function SeowynPage({ next }) {
   )
 }
 
-// One before/after pair — the old way on the left, Seowyn on the right.
+// One before/after pair - the old way on the left, Seowyn on the right.
 function CompareRow({ before, after }) {
   return (
     <>
