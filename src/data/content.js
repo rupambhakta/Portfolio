@@ -36,7 +36,7 @@ export const hero = {
     [{ t: 'that run the ' }, { t: 'busywork', ember: true }],
     [{ t: 'so you don’t.', outline: true }],
   ],
-  sub: 'Rupam Bhakta | I design and ship AI agents, automations, and full-stack apps that save growing teams hours every week.',
+  sub: 'Rupam Bhakta — I design and ship AI agents, automations, and full-stack apps that save growing teams hours every week.',
   primaryCta: { label: 'See selected work', href: '/#work' },
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
