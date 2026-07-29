@@ -1,7 +1,8 @@
 import { marqueeItems } from '../data/content.js'
 import { TechIcon } from './TechIcon.jsx'
 
-// A scrolling strip of the tech stack — each logo in its real brand colour.
+// Scrolling tech-stack strip. Each item uses its real brand logo and colour
+// (see components/TechIcon.jsx). Add an item in content.js with a logo `icon` key.
 export default function Marquee() {
   const items = [...marqueeItems, ...marqueeItems]
   return (

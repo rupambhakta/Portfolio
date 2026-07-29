@@ -47,22 +47,29 @@ export const hero = {
   secondaryCta: { label: 'Book a call', href: '/#contact' },
   stats: [
     { k: '3', v: 'AI products shipped' },
-    { k: 'Python + AI', v: 'Full-stack and automation' },
+    { k: 'MERN + AI', v: 'Full-stack and automation' },
     { k: 'Global', v: 'Remote, paid in USD' },
   ],
 }
 
-// `icon` is a lucide-react name - see the ICONS map in components/Marquee.jsx.
+// `icon` is a logo key from components/TechIcon.jsx (real brand logos + colours).
 export const marqueeItems = [
-  { label: 'AI Agents', icon: 'Bot' },
-  { label: 'Workflow Automation', icon: 'Workflow' },
-  { label: 'Voice & Chat Bots', icon: 'Mic' },
-  { label: 'SEO Agents', icon: 'TrendingUp' },
-  { label: 'MERN Apps', icon: 'Boxes' },
-  { label: 'Next.js', icon: 'Triangle' },
-  { label: 'n8n', icon: 'Waypoints' },
-  { label: 'Real-time Systems', icon: 'Activity' },
-  { label: 'API Integrations', icon: 'Webhook' },
+  { label: 'React.js', icon: 'react' },
+  { label: 'Next.js', icon: 'next' },
+  { label: 'Node.js', icon: 'node' },
+  { label: 'Express.js', icon: 'express' },
+  { label: 'MongoDB', icon: 'mongodb' },
+  { label: 'PostgreSQL', icon: 'postgresql' },
+  { label: 'Tailwind CSS', icon: 'tailwind' },
+  { label: 'JavaScript', icon: 'javascript' },
+  { label: 'n8n', icon: 'n8n' },
+  { label: 'Socket.IO', icon: 'socketio' },
+  { label: 'Strapi', icon: 'strapi' },
+  { label: 'Cloudinary', icon: 'cloudinary' },
+  { label: 'Claude', icon: 'claude' },
+  { label: 'OpenAI', icon: 'openai' },
+  { label: 'Gemini', icon: 'gemini' },
+  { label: 'DeepSeek', icon: 'deepseek' },
 ]
 
 export const services = {
