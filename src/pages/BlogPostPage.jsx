@@ -125,8 +125,8 @@ export default function BlogPostPage() {
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
               {/* avatar with ring + glow */}
               <div className="relative shrink-0">
-                <div aria-hidden="true" className="absolute -inset-2 rounded-full opacity-70 blur-lg" style={{ background: 'radial-gradient(circle, rgba(255,90,31,0.45), transparent 70%)' }} />
-                <div className="relative rounded-full p-[2px]" style={{ background: 'linear-gradient(135deg, #FF7A45, #FF5A1F 45%, #7a2d12)' }}>
+                <div aria-hidden="true" className="absolute -inset-2 rounded-full opacity-60 blur-lg" style={{ background: 'radial-gradient(circle, rgba(236,231,221,0.16), transparent 70%)' }} />
+                <div className="relative rounded-full p-[2px]" style={{ background: 'linear-gradient(135deg, rgba(236,231,221,0.55), rgba(236,231,221,0.12))' }}>
                   <img src={aboutPage.portrait} alt={post.author} className="h-20 w-20 rounded-full border-2 border-base-950 object-cover" />
                 </div>
               </div>
@@ -139,12 +139,12 @@ export default function BlogPostPage() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label="LinkedIn"
-                    className="grid h-6 w-6 place-items-center rounded-md bg-ember/15 text-ember transition-colors hover:bg-ember hover:text-ink"
+                    className="grid h-6 w-6 place-items-center rounded-md bg-[#0A66C2] text-white transition-colors hover:bg-[#0955a3]"
                   >
                     <Linkedin className="h-3.5 w-3.5" />
                   </a>
                 </div>
-                <p className="mt-1 font-mono text-[12px] uppercase tracking-wider text-ember">{aboutPage.role}</p>
+                <p className="mt-1 font-mono text-[12px] uppercase tracking-wider text-cream-mut">{aboutPage.role}</p>
                 <p className="mt-3 max-w-[60ch] text-[0.975rem] leading-relaxed text-cream-mut">
                   Full-stack developer and AI engineer from Kolkata. I build AI agents, automations, and full-stack products that hand growing teams back the hours they lose to busywork. Here I write about what worked, what broke, and what I would do differently.
                 </p>
@@ -152,7 +152,7 @@ export default function BlogPostPage() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 font-mono text-[13px] font-medium text-cream transition-colors hover:text-ember"
+                  className="mt-4 inline-flex items-center gap-1.5 font-mono text-[13px] font-medium text-[#4a9fe8] transition-colors hover:text-[#6fb4ef]"
                 >
                   Connect on LinkedIn
                   <ArrowUpRight className="h-4 w-4" />
