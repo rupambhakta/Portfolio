@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Mail, Github, Linkedin, Instagram, Facebook, X, Calendar } from 'lucide-react'
+import { ArrowRight, Mail, Calendar } from 'lucide-react'
 import { contact, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, DisplayLines, MonoLabel } from './ui.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 export default function Contact() {
   return (
@@ -46,22 +47,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="mt-10 flex items-center justify-center gap-3">
-              {[
-                { href: profile.github, icon: Github, label: 'GitHub' },
-                { href: profile.linkedin, icon: Linkedin, label: 'LinkedIn' },
-                { href: `mailto:${profile.email}`, icon: Mail, label: 'Email' },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="grid h-11 w-11 place-items-center rounded-xl border border-cream/12 bg-cream/[0.04] text-cream-dim transition-colors hover:border-ember/50 hover:text-cream"
-                >
-                  <s.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            <SocialLinks email className="mt-10 justify-center" />
           </Reveal>
         </div>
       </div>

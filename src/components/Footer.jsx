@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, Mail, Instagram, Facebook, X } from 'lucide-react'
 import { profile, nav } from '../data/content.js'
 import SectionLink from './SectionLink.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 const idOf = (href) => href.split('#')[1] || ''
 
@@ -44,27 +44,7 @@ export default function Footer() {
             )}
           </nav>
 
-          <div className="flex items-center gap-2">
-            {[
-              { href: profile.github, icon: Github, label: 'GitHub' },
-              { href: profile.linkedin, icon: Linkedin, label: 'LinkedIn' },
-              { href: profile.x, icon: X, label: 'X' },
-              { href: profile.instagram, icon: Instagram, label: 'Instagram' },
-              { href: profile.facebook, icon: Facebook, label: 'Facebook' },
-              { href: `mailto:${profile.email}`, icon: Mail, label: 'Email' },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                target={s.href?.startsWith('http') ? '_blank' : undefined}
-                rel={s.href?.startsWith('http') ? 'noreferrer' : undefined}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-cream/12 bg-cream/[0.04] text-cream-dim transition-colors hover:border-ember/50 hover:text-cream"
-              >
-                <s.icon className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
+          <SocialLinks email size="sm" />
         </div>
 
         <p className="mt-8 font-mono text-xs text-cream-mut">
