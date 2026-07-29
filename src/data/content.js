@@ -114,10 +114,11 @@ export const about = {
     'If a task is repetitive, there’s a good chance it can be automated. Tell me what’s eating your time and I’ll help you work out whether it’s worth it.',
   ],
   skills: [
-    { label: 'Frontend', items: ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript (ES6+)'] },
+    { label: 'Frontend', items: ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript'] },
     { label: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs', 'Java'] },
-    { label: 'Data', items: ['MongoDB', 'SQL (basic)'] },
+    { label: 'Data', items: ['MongoDB', 'PostgreSQL'] },
     { label: 'AI & Automation', items: ['AI agents', 'LLM APIs', 'n8n', 'SEO agent'] },
+    { label: 'Model APIs', items: ['Claude', 'GPT-4o', 'Gemini', 'DeepSeek'] },
     { label: 'Tools', items: ['Git / GitHub', 'Strapi', 'Cloudinary', 'Socket.IO'] },
   ],
   experience: [

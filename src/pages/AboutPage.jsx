@@ -20,6 +20,7 @@ import {
 import { aboutPage, about, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, MonoLabel, DisplayLines } from '../components/ui.jsx'
+import { Toolbox } from '../components/Toolbox.jsx'
 
 function Section({ label, title, children, className = '' }) {
   return (
@@ -302,25 +303,8 @@ export default function AboutPage() {
         </Section>
 
         {/* Skills */}
-        <Section label="Toolbox" title={['What I, build with.']}>
-          <div className="mt-8 space-y-4">
-            {about.skills.map((g) => (
-              <Reveal key={g.label}>
-                <div className="flex flex-col gap-2 border-t border-cream/10 pt-4 sm:flex-row sm:gap-6">
-                  <span className="w-40 shrink-0 font-mono text-[11px] uppercase tracking-wider text-cream-mut">
-                    {g.label}
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {g.items.map((it) => (
-                      <span key={it} className="u-chip">
-                        {it}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+        <Section label="Toolbox" title={['What I', 'build with.']}>
+          <Toolbox groups={about.skills} className="mt-8" />
         </Section>
 
         {/* Closing CTA */}
