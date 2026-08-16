@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">AI agent autonomy control ladder</title>
+  <desc id="desc">Autonomy increases from read-only retrieval through drafting and low-risk action to high-impact action, while permissions, reversibility, monitoring, and approval controls increase with it.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.accent{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px Arial,sans-serif;letter-spacing:1px}.small{font:500 14px Arial,sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" class="bg"/>
+  <text x="70" y="78" class="label cream">INCREASE AUTONOMY ONLY WITH STRONGER CONTROLS</text>
+  <text x="70" y="108" class="small muted">permissions · reversibility · monitoring · approval</text>
+  <path d="M125 540V170" class="line" marker-end="url(#arrow)"/>
+  <text x="70" y="585" class="small muted">LOW AUTONOMY</text><text x="70" y="145" class="small muted">HIGH AUTONOMY</text>
+  <rect x="190" y="445" width="180" height="80" rx="15" class="box"/><text x="225" y="493" class="label cream">READ-ONLY</text><text x="210" y="518" class="small muted">RETRIEVE + CLASSIFY</text>
+  <rect x="410" y="350" width="180" height="80" rx="15" class="box"/><text x="461" y="398" class="label cream">DRAFT</text><text x="430" y="423" class="small muted">PERSON APPROVES</text>
+  <rect x="630" y="255" width="180" height="80" rx="15" class="box"/><text x="670" y="303" class="label cream">LOW-RISK</text><text x="657" y="328" class="small muted">REVERSIBLE ACTION</text>
+  <rect x="850" y="160" width="220" height="80" rx="15" class="accent"/><text x="890" y="208" class="label cream">HIGH-IMPACT</text><text x="892" y="233" class="small muted">APPROVAL + VALIDATION</text>
+  <path d="M370 485H410M590 390H630M810 295H850" class="line" marker-end="url(#arrow)"/>
+  <path d="M190 570H1070" class="line"/>
+  <text x="210" y="610" class="small muted">MINIMUM TOOLS</text><text x="520" y="610" class="small muted">NARROW PERMISSIONS</text><text x="835" y="610" class="small muted">AUDITABLE CONTROLS</text>
+</svg>

@@ -77,7 +77,7 @@ Blog content lives in `src/data/blog.js`; publication state and release times li
 }
 ```
 
-The GitHub Actions workflow at `.github/workflows/publish-blog.yml` runs daily at midnight Asia/Kolkata, publishes
+The GitHub Actions workflow at `.github/workflows/publish-blog.yml` runs daily at 09:00 Asia/Kolkata, publishes
 one due post, regenerates `public/sitemap.xml`, and commits the release. Vercel then deploys that commit through its
 Git integration. It can also be run manually from the Actions tab. The workflow requires the repository's default
 branch to be connected to the Vercel project and the workflow's `GITHUB_TOKEN` to have write access to contents.

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">AI agent use-case decision funnel</title>
+  <desc id="desc">A workflow passes through gates for a clear outcome, judgment, data and tools, business value, and contained failure before reaching an agent prototype.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.dash{fill:none;stroke:#b3a996;stroke-width:2;stroke-dasharray:8 8}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.accent{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px Arial,sans-serif;letter-spacing:1px}.small{font:500 14px Arial,sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="soft"/></marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" class="bg"/>
+  <text x="70" y="78" class="label cream">A USE CASE SHOULD PASS EVERY GATE</text>
+  <text x="70" y="108" class="small muted">before it reaches an agent prototype</text>
+  <path d="M80 310H180" class="line" marker-end="url(#arrowSoft)"/>
+  <circle cx="62" cy="310" r="20" class="orange"/><text x="42" y="355" class="small muted">WORKFLOW</text>
+  <rect x="180" y="250" width="160" height="120" rx="16" class="box"/><text x="211" y="300" class="label cream">OUTCOME</text><text x="208" y="327" class="small muted">OWNER + STOP</text>
+  <path d="M340 310H390" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="390" y="250" width="160" height="120" rx="16" class="box"/><text x="425" y="300" class="label cream">JUDGMENT</text><text x="413" y="327" class="small muted">EXCEPTIONS</text>
+  <path d="M550 310H600" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="600" y="250" width="160" height="120" rx="16" class="box"/><text x="618" y="300" class="label cream">DATA + TOOLS</text><text x="630" y="327" class="small muted">READY + SAFE</text>
+  <path d="M760 310H810" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="810" y="250" width="160" height="120" rx="16" class="box"/><text x="853" y="300" class="label cream">VALUE</text><text x="826" y="327" class="small muted">FREQUENT + SLOW</text>
+  <path d="M970 310H1030" class="line" marker-end="url(#arrow)"/>
+  <rect x="1030" y="250" width="115" height="120" rx="16" class="accent"/><text x="1050" y="298" class="label cream">SAFE</text><text x="1047" y="325" class="label cream">TO TEST</text>
+  <path d="M260 370V480H80" class="dash" marker-end="url(#arrowSoft)"/><text x="92" y="520" class="small muted">FIX PROCESS</text>
+  <path d="M470 370V550H360" class="dash" marker-end="url(#arrowSoft)"/><text x="372" y="590" class="small muted">USE SIMPLE AUTOMATION</text>
+  <path d="M680 370V480H620" class="dash" marker-end="url(#arrowSoft)"/><text x="632" y="520" class="small muted">CLEAN KNOWLEDGE</text>
+  <path d="M890 370V550H830" class="dash" marker-end="url(#arrowSoft)"/><text x="842" y="590" class="small muted">MEASURE FIRST</text>
+  <path d="M1088 370V480H1000" class="line" marker-end="url(#arrow)"/><circle cx="950" cy="480" r="38" class="accent"/><path d="M932 480l12 12 24-28" class="line"/><text x="918" y="535" class="small muted">PROTOTYPE</text>
+</svg>
