@@ -64,6 +64,34 @@ Prefer clean URLs? Switch `HashRouter` → `BrowserRouter` in `src/main.jsx` and
   project needs**, plus the card fields the homepage reads (`slug`, `title`, `kind`, `year`, `status`, `tint`,
   `cover`, `summary`, `tags`, `links`). `projects/index.js` sets the homepage order.
 
+### Scheduled blog publishing
+
+Blog content lives in `src/data/blog.js`; publication state and release times live in
+`src/data/blog-schedule.json`. To queue a post, add its content to `blog.js` and add a matching schedule entry:
+
+```json
+{
+  "slug": "your-post-slug",
+  "publishAt": "2026-08-18T09:00:00+05:30",
+  "status": "scheduled"
+}
+```
+
+The GitHub Actions workflow at `.github/workflows/publish-blog.yml` runs daily at midnight Asia/Kolkata, publishes
+one due post, regenerates `public/sitemap.xml`, and commits the release. Vercel then deploys that commit through its
+Git integration. It can also be run manually from the Actions tab. The workflow requires the repository's default
+branch to be connected to the Vercel project and the workflow's `GITHUB_TOKEN` to have write access to contents.
+
+Useful local commands:
+
+```bash
+npm run publish:blog       # publish one due post, if any
+npm run sitemap:generate   # rebuild the sitemap from published posts
+```
+
+The scheduler publishes one post per run, even if several posts are overdue. This prevents a missed workflow run from
+releasing multiple articles at once.
+
 Search `TODO` for the things to fill in:
 
 | What | Where |

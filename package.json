@@ -9,6 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server.js",
+    "publish:blog": "node scripts/publish-next-blog.mjs",
+    "sitemap:generate": "node scripts/generate-sitemap.mjs",
     "build:singlefile": "cross-env SINGLEFILE=1 vite build --outDir dist-single --emptyOutDir"
   },
   "dependencies": {

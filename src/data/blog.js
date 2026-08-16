@@ -15,6 +15,7 @@ import coverShipping from '../assets/blog/shipping-fast-without-shipping-junk.sv
 import coverWorkflow from '../assets/blog/multi-agent-workflow-architecture-hero.webp'
 import workflowArchitecture from '../assets/blog/multi-agent-workflow-architecture-diagram.svg'
 import workflowRecovery from '../assets/blog/multi-agent-workflow-recovery-flow.svg'
+import blogSchedule from './blog-schedule.json'
 
 // Page-level copy for /blog.
 export const blogMeta = {
@@ -26,7 +27,7 @@ export const blogMeta = {
 
 // Each post carries a `tint` (ember / violet / cyan / green) used for its
 // cover and accents, so the listing stays colourful without leaning on red.
-export const posts = [
+const postSource = [
   {
     slug: 'multi-agent-workflow-architecture',
     title: 'Multi-Agent Workflow Architecture: Reliable Systems Under Control',
@@ -337,6 +338,11 @@ The last step is the one people skip: ship the smallest honest version, then *wa
 Fast and careful are not a trade. They are the same habit, practised until it is quiet.`,
   },
 ]
+
+// The source bundle contains every authored post, but only posts marked
+// published in the schedule are exposed to the journal and route resolver.
+const scheduleBySlug = new Map(blogSchedule.map((entry) => [entry.slug, entry]))
+export const posts = postSource.filter((post) => scheduleBySlug.get(post.slug)?.status === 'published')
 
 // ── helpers ───────────────────────────────────────────────────
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
