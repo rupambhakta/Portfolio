@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Chatbot versus custom AI agent workflow</title>
+  <desc id="desc">A chatbot follows a known path from a message to an answer or handoff. A custom agent interprets a goal, chooses approved tools, checks results, and reaches a controlled outcome.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.dash{fill:none;stroke:#b3a996;stroke-width:2;stroke-dasharray:8 8}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.accent{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px Arial,sans-serif;letter-spacing:1px}.small{font:500 14px Arial,sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="soft"/></marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" class="bg"/>
+  <path d="M600 90V580" class="dash"/>
+  <text x="95" y="80" class="label cream">CHATBOT</text><text x="95" y="108" class="small muted">KNOWN PATH</text>
+  <text x="690" y="80" class="label cream">CUSTOM AGENT</text><text x="690" y="108" class="small muted">BOUNDED CHOICE</text>
+  <rect x="105" y="160" width="170" height="72" rx="15" class="box"/><text x="148" y="204" class="label cream">MESSAGE</text>
+  <rect x="105" y="290" width="170" height="72" rx="15" class="box"/><text x="127" y="334" class="label cream">RETRIEVE</text>
+  <rect x="105" y="420" width="170" height="72" rx="15" class="box"/><text x="143" y="464" class="label cream">ANSWER</text>
+  <path d="M190 232V290M190 362V420" class="line" marker-end="url(#arrowSoft)"/>
+  <path d="M275 456H365V326" class="dash" marker-end="url(#arrowSoft)"/><rect x="365" y="290" width="140" height="72" rx="15" class="box"/><text x="394" y="334" class="label cream">HANDOFF</text>
+  <rect x="680" y="160" width="170" height="72" rx="15" class="box"/><text x="722" y="204" class="label cream">GOAL</text>
+  <path d="M765 232V270" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="680" y="270" width="170" height="72" rx="15" class="accent"/><text x="710" y="314" class="label cream">DECIDE</text>
+  <path d="M765 342V380M765 380H690M765 380H840M690 380V410M840 380V410" class="line" marker-end="url(#arrow)"/>
+  <circle cx="690" cy="450" r="42" class="box"/><text x="668" y="455" class="small cream">DATA</text>
+  <circle cx="840" cy="450" r="42" class="box"/><text x="818" y="455" class="small cream">TOOL</text>
+  <path d="M690 492V540H765M840 492V540H765" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="680" y="540" width="170" height="60" rx="15" class="accent"/><text x="709" y="577" class="label cream">CHECK + ACT</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Chatbot to custom agent capability ladder</title>
+  <desc id="desc">A four-stage ladder moves from FAQ chat to grounded chat, tool-assisted chat, and a custom agent. Controls increase from source quality to permissions, state, monitoring, and approval.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.accent{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px Arial,sans-serif;letter-spacing:1px}.small{font:500 14px Arial,sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" class="bg"/>
+  <text x="70" y="78" class="label cream">START WITH THE LEAST CAPABLE SYSTEM THAT WORKS</text>
+  <text x="70" y="108" class="small muted">add autonomy only when the workflow proves it needs it</text>
+  <path d="M170 555V175" class="line" marker-end="url(#arrow)"/>
+  <text x="90" y="595" class="small muted">LESS CONTROL COST</text><text x="90" y="150" class="small muted">MORE CONTROL COST</text>
+  <rect x="245" y="455" width="190" height="82" rx="15" class="box"/><text x="285" y="495" class="label cream">FAQ CHAT</text><text x="270" y="520" class="small muted">SCRIPTED PATHS</text>
+  <rect x="470" y="350" width="190" height="82" rx="15" class="box"/><text x="505" y="390" class="label cream">GROUNDED</text><text x="516" y="415" class="small muted">APPROVED SOURCES</text>
+  <rect x="695" y="245" width="190" height="82" rx="15" class="box"/><text x="722" y="285" class="label cream">TOOL ASSISTANT</text><text x="731" y="310" class="small muted">ONE NARROW ACTION</text>
+  <rect x="920" y="140" width="210" height="82" rx="15" class="accent"/><text x="944" y="180" class="label cream">CUSTOM AGENT</text><text x="948" y="205" class="small muted">STATE + APPROVAL</text>
+  <path d="M435 496H470M660 391H695M885 286H920" class="line" marker-end="url(#arrow)"/>
+  <path d="M245 570H1130" class="line"/>
+  <text x="260" y="620" class="small muted">SOURCE QUALITY</text><text x="515" y="620" class="small muted">RETRIEVAL</text><text x="730" y="620" class="small muted">PERMISSIONS</text><text x="970" y="620" class="small muted">STATE + RECOVERY</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Two systems behind a chat interface</title>
+  <desc id="desc">The same chat bubble can front a response system that ends with an answer or a workflow system that continues through tools, state, validation, and approval.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.dash{fill:none;stroke:#b3a996;stroke-width:2;stroke-dasharray:8 8}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.accent{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px Arial,sans-serif;letter-spacing:1px}.small{font:500 14px Arial,sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="soft"/></marker>
+  </defs>
+  <rect width="1200" height="650" rx="28" class="bg"/>
+  <text x="70" y="78" class="label cream">ONE CHAT INTERFACE, TWO VERY DIFFERENT SYSTEMS</text>
+  <circle cx="600" cy="170" r="48" class="accent"/><path d="M575 165h50M575 180h35" class="line"/><path d="M575 205l-16 20 28-10" class="line"/>
+  <path d="M552 220L300 300M648 220L900 300" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="110" y="270" width="380" height="230" rx="18" class="box"/><text x="150" y="325" class="label cream">RESPONSE SYSTEM</text><text x="150" y="355" class="small muted">approved content + known route</text>
+  <rect x="160" y="400" width="120" height="58" rx="12" class="box"/><text x="194" y="436" class="small cream">ANSWER</text>
+  <rect x="320" y="400" width="120" height="58" rx="12" class="box"/><text x="353" y="436" class="small cream">HANDOFF</text>
+  <path d="M280 429H320" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="710" y="270" width="380" height="230" rx="18" class="accent"/><text x="750" y="325" class="label cream">WORKFLOW SYSTEM</text><text x="750" y="355" class="small muted">state + tools + bounded choice</text>
+  <path d="M900 400V430H790M900 400V430H1010" class="line" marker-end="url(#arrow)"/>
+  <circle cx="790" cy="470" r="32" class="box"/><text x="770" y="475" class="small cream">STATE</text>
+  <circle cx="1010" cy="470" r="32" class="box"/><text x="990" y="475" class="small cream">TOOLS</text>
+  <path d="M790 502V555H900M1010 502V555H900" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="830" y="550" width="140" height="55" rx="12" class="accent"/><text x="852" y="584" class="small cream">OUTCOME</text>
+</svg>
