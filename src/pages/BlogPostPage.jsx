@@ -104,10 +104,20 @@ export default function BlogPostPage() {
         <Reveal>
           <div className="relative mt-8 h-[220px] overflow-hidden rounded-3xl border border-cream/10 sm:h-[320px]">
             {post.cover ? (
-              <img src={post.cover} alt="" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={post.cover} alt={post.coverAlt || ''} className="absolute inset-0 h-full w-full object-cover" />
             ) : (
               <div className="absolute inset-0" style={{ background: TINTS[post.tint] }} />
             )}
+            {post.heroLines ? (
+              <div className="absolute inset-y-0 left-0 flex w-[62%] flex-col justify-center bg-gradient-to-r from-base-950 via-base-950/80 to-transparent px-7 sm:px-10">
+                <div className="font-display text-[clamp(1.2rem,3vw,2.2rem)] uppercase leading-[0.95] tracking-wide text-cream">
+                  {post.heroLines.map((line) => <div key={line}>{line}</div>)}
+                </div>
+                <div className="mt-4 max-w-[24ch] font-mono text-[10px] uppercase tracking-[0.14em] text-cream-mut sm:text-[11px]">
+                  {post.heroSubline}
+                </div>
+              </div>
+            ) : null}
             <div className="absolute inset-0 flex items-end p-7 sm:p-10">
               <span className="rounded-full border border-cream/15 bg-base-950/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-cream/80 backdrop-blur-sm">
                 {post.tag}

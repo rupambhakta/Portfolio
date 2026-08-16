@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Recoverable multi-agent workflow states</title>
+  <desc id="desc">A run moves from accepted to running to validating and succeeded; retryable errors wait and loop back, while ambiguous work goes to human review and exhausted work ends in failure.</desc>
+  <defs>
+    <style>
+      .bg{fill:#131009}.line{fill:none;stroke:#d6cfc1;stroke-width:3}.dash{fill:none;stroke:#b3a996;stroke-width:3;stroke-dasharray:9 8}.box{fill:#1d1910;stroke:#d6cfc1;stroke-width:2}.orangebox{fill:#28150d;stroke:#ff5a1f;stroke-width:2}.cream{fill:#f4efe4}.muted{fill:#b3a996}.orange{fill:#ff5a1f}.label{font:600 18px 'Arial',sans-serif;letter-spacing:1px}.small{font:500 14px 'Arial',sans-serif;letter-spacing:1px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="orange"/></marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" class="soft"/></marker>
+  </defs>
+  <rect width="1200" height="560" rx="28" class="bg"/>
+  <rect x="70" y="210" width="145" height="76" rx="15" class="box"/><text x="96" y="257" class="label cream">ACCEPTED</text>
+  <rect x="280" y="210" width="145" height="76" rx="15" class="box"/><text x="321" y="257" class="label cream">RUNNING</text>
+  <rect x="490" y="210" width="165" height="76" rx="15" class="box"/><text x="513" y="257" class="label cream">VALIDATING</text>
+  <rect x="730" y="210" width="165" height="76" rx="15" class="orangebox"/><text x="772" y="257" class="label cream">SUCCEEDED</text>
+  <path d="M215 248H280M425 248H490M655 248H730" class="line" marker-end="url(#arrowSoft)"/>
+  <rect x="490" y="400" width="165" height="76" rx="15" class="box"/><text x="527" y="447" class="label cream">RETRY WAIT</text>
+  <path d="M572 286V400" class="dash" marker-end="url(#arrowSoft)"/><path d="M490 438H350V320H350V286" class="dash" marker-end="url(#arrowSoft)"/>
+  <text x="378" y="425" class="small muted">BOUNDED RETRY</text>
+  <rect x="730" y="400" width="165" height="76" rx="15" class="box"/><text x="747" y="447" class="label cream">HUMAN REVIEW</text>
+  <path d="M812 286V400" class="line" marker-end="url(#arrowSoft)"/><path d="M730 438H680V325H572" class="dash" marker-end="url(#arrowSoft)"/>
+  <rect x="970" y="210" width="165" height="76" rx="15" class="box"/><text x="1004" y="257" class="label cream">FAILED</text>
+  <path d="M812 286V340H1052V286" class="line" marker-end="url(#arrow)"/><text x="865" y="330" class="small muted">EXHAUSTED</text>
+  <text x="70" y="110" class="label cream">EVERY FAILURE GETS A NAMED NEXT STATE</text>
+  <text x="70" y="140" class="small muted">run id · task id · input version · attempt count · timestamp · reason code</text>
+</svg>

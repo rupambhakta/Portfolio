@@ -119,6 +119,9 @@ export default function SeoHead() {
   useEffect(() => {
     const { title, description } = metaFor(pathname)
     const url = SITE + (pathname === '/' ? '/' : pathname)
+    const blogM = pathname.match(/^\/blog\/(.+)$/)
+    const post = blogM && getPost(blogM[1])
+    const image = post?.ogImage ? (post.ogImage.startsWith('http') ? post.ogImage : SITE + post.ogImage) : null
 
     document.title = title
     setMeta('description', description)
@@ -129,6 +132,8 @@ export default function SeoHead() {
     setProp('og:url', url)
     setProp('og:type', pathname.startsWith('/blog/') ? 'article' : 'website')
     setProp('og:site_name', `${NAME} Portfolio`)
+    if (image) setProp('og:image', image)
+    else setProp('og:image', `${SITE}/favicon.svg`)
     setMeta('twitter:card', 'summary_large_image')
     setMeta('twitter:title', title)
     setMeta('twitter:description', description)
@@ -154,19 +159,18 @@ export default function SeoHead() {
     } : null)
 
     // BlogPosting on posts, CreativeWork on case studies.
-    const blogM = pathname.match(/^\/blog\/(.+)$/)
     const workM = pathname.match(/^\/work\/(.+)$/)
-    const post = blogM && getPost(blogM[1])
     const proj = workM && projects.find((x) => x.slug === workM[1])
     if (post) {
       setJsonLd('ld-page', {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
-        headline: post.title,
-        description: clean(post.excerpt),
+        headline: post.seoTitle || post.title,
+        description: clean(post.metaDescription || post.excerpt),
         datePublished: post.date,
         author,
         publisher: author,
+        image: image || undefined,
         mainEntityOfPage: url,
         url,
       })
