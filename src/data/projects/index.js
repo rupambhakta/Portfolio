@@ -6,10 +6,11 @@
 import getparlix from './getparlix.js'
 import seowyn from './seowyn.js'
 import heatmapiq from './heatmapiq.js'
+import kdpAds from './kdp-ads.js'
 
 // Homepage order.
-export const projects = [getparlix, seowyn, heatmapiq]
+export const projects = [getparlix, seowyn, heatmapiq, kdpAds]
 
 export const bySlug = (slug) => projects.find((p) => p.slug === slug)
 
-export { getparlix, seowyn, heatmapiq }
+export { getparlix, seowyn, heatmapiq, kdpAds }

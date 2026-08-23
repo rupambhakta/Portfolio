@@ -48,6 +48,8 @@ const WORK_DESC = {
     'Seowyn is an autonomous multi-agent SEO platform I built that audits a site, researches competitors, and returns a 90 day growth plan.',
   heatmapiq:
     'HeatMapIQ is a tool I built that turns raw heatmap exports into a plain-English, severity-ranked list of UX fixes with tracking and sharing.',
+  'kdp-ads':
+    'KDP Ads Platform is an analytics and automation system I built that unifies Amazon Ads and KDP sales across four marketplaces to drive profitable, automated bid and budget decisions.',
 }
 
 function workDescription(p) {

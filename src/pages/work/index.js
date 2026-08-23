@@ -3,9 +3,11 @@
 import GetParlixPage from './GetParlixPage.jsx'
 import SeowynPage from './SeowynPage.jsx'
 import HeatMapIQPage from './HeatMapIQPage.jsx'
+import KDPAdsPage from './KDPAdsPage.jsx'
 
 export const PROJECT_PAGES = {
   getparlix: GetParlixPage,
   seowyn: SeowynPage,
   heatmapiq: HeatMapIQPage,
+  'kdp-ads': KDPAdsPage,
 }

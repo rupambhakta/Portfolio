@@ -200,6 +200,21 @@ body {
   .u-card {
     @apply rounded-2xl border border-cream/10 bg-base-850;
   }
+  /* KDP hero backdrop — a dark n8n screenshot. Rich on the dark canvases,
+     whisper-faint on the light theme so it never turns into grey fog. */
+  .kdp-hero-bg {
+    opacity: 0.38;
+  }
+  :root[data-theme='light'] .kdp-hero-bg {
+    opacity: 0.09;
+  }
+  /* Fainter still for a full-section backdrop, so cards stay readable on top. */
+  .kdp-sec-bg {
+    opacity: 0.16;
+  }
+  :root[data-theme='light'] .kdp-sec-bg {
+    opacity: 0.06;
+  }
   /* Warm hover for surface tiles — opaque per theme, so it works on top of
      the hairline grid backgrounds without washing out. */
   .u-hover-tint {
