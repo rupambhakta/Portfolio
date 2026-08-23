@@ -4,6 +4,8 @@ import { hero, projects } from '../data/content.js'
 import { EXPO, stagger, lineReveal } from '../lib/motion.js'
 import { TINTS } from './ui.jsx'
 import SectionLink from './SectionLink.jsx'
+import HeroBackdrop from './HeroBackdrop.jsx'
+import heroBg from '../assets/bg/network.webp'
 
 function Word({ seg }) {
   return (
@@ -32,6 +34,7 @@ export default function Hero() {
 
   return (
     <section className="relative z-10 pt-32 sm:pt-40">
+      <HeroBackdrop src={heroBg} height="h-[720px]" />
       <div className="u-wrap">
         <motion.div
           className="u-eyebrow"

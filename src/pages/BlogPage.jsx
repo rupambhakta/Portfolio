@@ -8,6 +8,8 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { posts, blogMeta, allTags, formatDate, readingTime } from '../data/blog.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, MonoLabel, TINTS } from '../components/ui.jsx'
+import HeroBackdrop from '../components/HeroBackdrop.jsx'
+import blogBg from '../assets/bg/topo.webp'
 
 // Solid accent per tint, for category dots / labels (keeps colour off red).
 const DOT = { ember: '#FF6A3D', cyan: '#39C0D9', violet: '#9A8CFF', green: '#7BD88F' }
@@ -112,6 +114,7 @@ export default function BlogPage() {
 
   return (
     <article className="relative z-10 pb-28 pt-28 sm:pt-32">
+      <HeroBackdrop src={blogBg} height="h-[520px]" />
       <div className="u-wrap">
         {/* Hero */}
         <motion.div className="u-eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EXPO }}>

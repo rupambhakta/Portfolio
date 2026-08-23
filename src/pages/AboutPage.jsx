@@ -21,6 +21,8 @@ import { aboutPage, about, profile } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, MonoLabel, DisplayLines } from '../components/ui.jsx'
 import { Toolbox } from '../components/Toolbox.jsx'
+import HeroBackdrop from '../components/HeroBackdrop.jsx'
+import aboutBg from '../assets/bg/streams.webp'
 
 function Section({ label, title, children, className = '' }) {
   return (
@@ -49,6 +51,7 @@ const SOCIALS = [
 export default function AboutPage() {
   return (
     <article className="relative z-10 pb-24 pt-28 sm:pt-32">
+      <HeroBackdrop src={aboutBg} height="h-screen" />
       <div className="u-wrap">
         <Link
           to="/"

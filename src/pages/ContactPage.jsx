@@ -6,10 +6,13 @@ import { EXPO } from '../lib/motion.js'
 import { Reveal, MonoLabel } from '../components/ui.jsx'
 import ContactForm from '../components/ContactForm.jsx'
 import SocialLinks from '../components/SocialLinks.jsx'
+import HeroBackdrop from '../components/HeroBackdrop.jsx'
+import contactBg from '../assets/bg/aurora.webp'
 
 export default function ContactPage() {
   return (
     <section className="relative z-10 pb-24 pt-28 sm:pb-32 sm:pt-32">
+      <HeroBackdrop src={contactBg} height="h-[520px]" />
       <div className="u-wrap">
         <Link
           to="/"

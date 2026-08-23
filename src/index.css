@@ -200,6 +200,18 @@ body {
   .u-card {
     @apply rounded-2xl border border-cream/10 bg-base-850;
   }
+  /* Hero backdrops — dark cinematic images behind hero headlines. Visible on
+     the dark canvases, whisper-faint on the light theme so a dark image never
+     turns into grey fog. */
+  .hero-bg-img {
+    opacity: 0.62;
+  }
+  :root[data-theme='dark'] .hero-bg-img {
+    opacity: 0.72;
+  }
+  :root[data-theme='light'] .hero-bg-img {
+    opacity: 0.08;
+  }
   /* KDP hero backdrop — a dark n8n screenshot. Rich on the dark canvases,
      whisper-faint on the light theme so it never turns into grey fog. */
   .kdp-hero-bg {
