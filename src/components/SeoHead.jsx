@@ -9,8 +9,7 @@ import { profile } from '../data/content.js'
 import { getPost } from '../data/blog/index.js'
 import { projects } from '../data/projects/index.js'
 
-// TODO: swap this for your custom domain when you have one.
-const SITE = 'https://portfolio-khaki-psi-71.vercel.app'
+const SITE = 'https://rupambhakta.com'
 const NAME = 'Rupam Bhakta'
 
 // keep meta copy human: no em/en dashes, single spaces
