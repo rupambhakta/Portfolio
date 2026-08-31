@@ -1,15 +1,25 @@
-import { readFile } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 export const SCHEDULE_PATH = path.join(ROOT, 'src', 'data', 'blog-schedule.json')
-const BLOG_SOURCE_PATH = path.join(ROOT, 'src', 'data', 'blog.js')
+const BLOG_SOURCE_DIR = path.join(ROOT, 'src', 'data', 'blog')
+
+async function loadBlogSources() {
+  const entries = await readdir(BLOG_SOURCE_DIR, { recursive: true })
+  const sources = await Promise.all(
+    entries
+      .filter((entry) => entry.endsWith('.js'))
+      .map((entry) => readFile(path.join(BLOG_SOURCE_DIR, entry), 'utf8')),
+  )
+  return sources.join('\n')
+}
 
 export async function loadSchedule() {
   const [scheduleText, blogSource] = await Promise.all([
     readFile(SCHEDULE_PATH, 'utf8'),
-    readFile(BLOG_SOURCE_PATH, 'utf8'),
+    loadBlogSources(),
   ])
   const schedule = JSON.parse(scheduleText)
   const sourceSlugs = [...blogSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map((match) => match[1])

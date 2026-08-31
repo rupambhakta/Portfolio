@@ -4,7 +4,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight, ArrowRight, Linkedin } from 'lucide-react'
-import { getPost, adjacentPosts, formatDate, readingTime } from '../data/blog.js'
+import { getPost, adjacentPosts, formatDate, readingTime } from '../data/blog/index.js'
 import { profile, aboutPage } from '../data/content.js'
 import { EXPO } from '../lib/motion.js'
 import { Reveal, TINTS } from '../components/ui.jsx'

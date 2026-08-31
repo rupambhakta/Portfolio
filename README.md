@@ -66,8 +66,9 @@ Prefer clean URLs? Switch `HashRouter` → `BrowserRouter` in `src/main.jsx` and
 
 ### Scheduled blog publishing
 
-Blog content lives in `src/data/blog.js`; publication state and release times live in
-`src/data/blog-schedule.json`. To queue a post, add its content to `blog.js` and add a matching schedule entry:
+Each blog post lives in its own file in `src/data/blog/`; `src/data/blog/index.js` is the listing registry.
+Publication state and release times live in `src/data/blog-schedule.json`. To queue a post, add its content file,
+register it in `index.js`, and add a matching schedule entry:
 
 ```json
 {

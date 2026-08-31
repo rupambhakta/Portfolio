@@ -6,7 +6,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { profile } from '../data/content.js'
-import { getPost } from '../data/blog.js'
+import { getPost } from '../data/blog/index.js'
 import { projects } from '../data/projects/index.js'
 
 // TODO: swap this for your custom domain when you have one.
