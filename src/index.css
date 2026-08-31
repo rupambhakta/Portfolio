@@ -248,6 +248,38 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Keep the portfolio's dark canvas while giving this article the document's
+   restrained teal information hierarchy. */
+.unified-diffing .text-ember,
+.unified-diffing .blog-prose a {
+  color: #73d3c7 !important;
+}
+.unified-diffing .blog-prose a {
+  text-decoration-color: rgba(115, 211, 199, 0.46);
+}
+.unified-diffing .blog-prose h2,
+.unified-diffing .blog-prose h3,
+.unified-diffing .blog-prose h4 {
+  color: #c8eee7 !important;
+}
+.unified-diffing .bg-ember,
+.unified-diffing .border-ember {
+  background-color: #4ba89d;
+  border-color: #4ba89d;
+}
+.unified-diffing .blog-prose blockquote,
+.unified-diffing .blog-prose aside {
+  border-color: #4ba89d;
+}
+.unified-diffing .blog-prose aside,
+.unified-diffing .blog-prose thead {
+  background: #132320 !important;
+}
+.unified-diffing .unified-cover {
+  background: #101917;
+  border-color: rgba(200, 238, 231, 0.18) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

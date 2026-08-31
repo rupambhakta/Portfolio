@@ -1,6 +1,7 @@
 // Blog detail (/blog/:slug). Built around a narrow, high-contrast reading
 // column for comfortable long-form reading. Cover uses the post's theme tint;
 // ember stays a light accent.
+import { useEffect, useState } from 'react'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight, ArrowRight, Linkedin } from 'lucide-react'
@@ -42,14 +43,54 @@ function NavCard({ post, dir }) {
   )
 }
 
+function ArticleToc({ items }) {
+  const [activeId, setActiveId] = useState(items[0]?.id)
+
+  useEffect(() => {
+    const sections = items.map((item) => document.getElementById(item.id)).filter(Boolean)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting)
+        if (visible.length) setActiveId(visible[0].target.id)
+      },
+      { rootMargin: '-18% 0px -68% 0px', threshold: 0 },
+    )
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [items])
+
+  return (
+    <aside className="hidden lg:block">
+      <nav className="sticky top-28 border-l border-[#b8c9c3] pl-5">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#16766d]">In this article</p>
+        <ol className="mt-4 space-y-3">
+          {items.map((item, index) => (
+            <li key={item.id}>
+              <a
+                href={'#' + item.id}
+                onClick={() => setActiveId(item.id)}
+                className={activeId === item.id ? 'group flex gap-2 text-[0.82rem] font-medium leading-snug text-[#73d3c7] transition-colors' : 'group flex gap-2 text-[0.82rem] leading-snug text-cream-mut transition-colors hover:text-cream'}
+              >
+                <span className={activeId === item.id ? 'font-mono text-[#73d3c7]' : 'font-mono text-[#4ba89d]'}>{String(index + 1).padStart(2, '0')}</span>
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </aside>
+  )
+}
+
 export default function BlogPostPage() {
   const { slug } = useParams()
   const post = getPost(slug)
   if (!post) return <Navigate to="/blog" replace />
   const { older, newer } = adjacentPosts(slug)
+  const isEditorial = post.slug === 'unified-diffing-ai-coding-agents'
 
   return (
-    <article className="relative z-10 pb-28 pt-28 sm:pt-32">
+    <article className={isEditorial ? 'unified-diffing relative z-10 pb-28 pt-28 sm:pt-32' : 'relative z-10 pb-28 pt-28 sm:pt-32'}>
       <div className="u-wrap">
         <Link
           to="/blog"
@@ -59,7 +100,7 @@ export default function BlogPostPage() {
         </Link>
 
         {/* Header (narrow column) */}
-        <div className="mx-auto mt-8 max-w-[760px]">
+        <div className={isEditorial ? 'unified-header mt-8 max-w-[1180px]' : 'mx-auto mt-8 max-w-[760px]'}>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EXPO }}>
             <TagLabel post={post} />
           </motion.div>
@@ -94,7 +135,7 @@ export default function BlogPostPage() {
             <div className="font-mono text-[12px] uppercase tracking-wider text-cream-mut">
               <div className="text-cream">{post.author}</div>
               <div className="mt-0.5">
-                {formatDate(post.date)} <span className="text-cream/20">/</span> {readingTime(post.body)} min read
+                {formatDate(post.date)} <span className="text-cream/20">/</span> {post.readMinutes || readingTime(post.body)} min read
               </div>
             </div>
           </motion.div>
@@ -102,13 +143,13 @@ export default function BlogPostPage() {
 
         {/* Cover band */}
         <Reveal>
-          <div className="relative mt-8 h-[220px] overflow-hidden rounded-3xl border border-cream/10 sm:h-[320px]">
+          <div className={isEditorial ? 'unified-cover relative mt-8 aspect-[1200/630] overflow-hidden rounded-3xl border border-cream/10' : 'unified-cover relative mt-8 h-[220px] overflow-hidden rounded-3xl border border-cream/10 sm:h-[320px]'}>
             {post.cover ? (
-              <img src={post.cover} alt={post.coverAlt || ''} className="absolute inset-0 h-full w-full object-cover" />
+              <img src={post.cover} alt={post.coverAlt || ''} className={isEditorial ? 'absolute inset-0 h-full w-full object-contain' : 'absolute inset-0 h-full w-full object-cover'} />
             ) : (
               <div className="absolute inset-0" style={{ background: TINTS[post.tint] }} />
             )}
-            {post.heroLines ? (
+            {!isEditorial && post.heroLines ? (
               <div className="absolute inset-y-0 left-0 flex w-[62%] flex-col justify-center bg-gradient-to-r from-base-950 via-base-950/80 to-transparent px-7 sm:px-10">
                 <div className="font-display text-[clamp(1.2rem,3vw,2.2rem)] uppercase leading-[0.95] tracking-wide text-cream">
                   {post.heroLines.map((line) => <div key={line}>{line}</div>)}
@@ -118,20 +159,24 @@ export default function BlogPostPage() {
                 </div>
               </div>
             ) : null}
-            <div className="absolute inset-0 flex items-end p-7 sm:p-10">
-              <span className="rounded-full border border-cream/15 bg-base-950/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-cream/80 backdrop-blur-sm">
-                {post.tag}
-              </span>
-            </div>
+            {!isEditorial ? (
+              <div className="absolute inset-0 flex items-end p-7 sm:p-10">
+                <span className="rounded-full border border-cream/15 bg-base-950/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-cream/80 backdrop-blur-sm">
+                  {post.tag}
+                </span>
+              </div>
+            ) : null}
           </div>
         </Reveal>
 
         {/* Body (narrow column) */}
-        <div className="mx-auto mt-10 max-w-[720px]">
-          <Markdown content={post.body} />
+        <div className={isEditorial ? 'mx-auto mt-10 grid max-w-[1180px] gap-10 lg:grid-cols-[200px_minmax(0,720px)]' : 'mx-auto mt-10 max-w-[720px]'}>
+          {isEditorial ? <ArticleToc items={post.toc} /> : null}
+          <div>
+            <Markdown content={post.body} hideToc={isEditorial} />
 
-          {/* Author */}
-          <div className="mt-14 border-t border-cream/10 pt-10">
+            {/* Author */}
+            <div className="mt-14 border-t border-cream/10 pt-10">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
               {/* avatar with ring + glow */}
               <div className="relative shrink-0">
@@ -168,6 +213,7 @@ export default function BlogPostPage() {
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
+            </div>
             </div>
           </div>
         </div>

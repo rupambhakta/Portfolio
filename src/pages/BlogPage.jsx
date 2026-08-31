@@ -19,7 +19,7 @@ function Meta({ post, className = '' }) {
     <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-wider text-cream-mut ${className}`}>
       <span>{formatDate(post.date)}</span>
       <span className="text-cream/20">/</span>
-      <span>{readingTime(post.body)} min read</span>
+      <span>{post.readMinutes || readingTime(post.body)} min read</span>
     </div>
   )
 }
