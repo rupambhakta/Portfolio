@@ -5,12 +5,12 @@
 // Screenshots live in src/assets/ and are imported so Vite fingerprints them
 // and fails the build if a path is wrong. `ratio` matches each file's real
 // aspect ratio so nothing gets cropped.
-import cover from '../../assets/getparlix/getparlix.com_.png'
-import bookingChat from '../../assets/getparlix/appointment-booking.png'
-import voiceInPage from '../../assets/getparlix/voiceCall.png'
-import voiceWidget from '../../assets/getparlix/voiceCall01.png'
-import dashDocuments from '../../assets/getparlix/admin-dashboard1.png'
-import dashScheduling from '../../assets/getparlix/admin-dashboard2-customize-appointmont-booking.png'
+import cover from '../../assets/getparlix/getparlix.com_.webp'
+import bookingChat from '../../assets/getparlix/appointment-booking.webp'
+import voiceInPage from '../../assets/getparlix/voiceCall.webp'
+import voiceWidget from '../../assets/getparlix/voiceCall01.webp'
+import dashDocuments from '../../assets/getparlix/admin-dashboard1.webp'
+import dashScheduling from '../../assets/getparlix/admin-dashboard2-customize-appointmont-booking.webp'
 
 export default {
   slug: 'getparlix',

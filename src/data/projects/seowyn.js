@@ -4,12 +4,12 @@
 // Images are imported (so Vite fingerprints them and the build fails on a bad
 // path) and each `ratio` is the file's real pixel aspect ratio, so screenshots
 // are shown in full - never cropped.
-import cover from '../../assets/Seowyn/main.png'
-import shotWorkspace from '../../assets/Seowyn/your-sites.png'
-import shotStart from '../../assets/Seowyn/start-a-free-trial.png'
-import shotSetup from '../../assets/Seowyn/step-by-step-setup.png'
-import shotTopics from '../../assets/Seowyn/blog-topic-based-on-keyword-research.png'
-import shotDashboard from '../../assets/Seowyn/all-in-one.png'
+import cover from '../../assets/Seowyn/main.webp'
+import shotWorkspace from '../../assets/Seowyn/your-sites.webp'
+import shotStart from '../../assets/Seowyn/start-a-free-trial.webp'
+import shotSetup from '../../assets/Seowyn/step-by-step-setup.webp'
+import shotTopics from '../../assets/Seowyn/blog-topic-based-on-keyword-research.webp'
+import shotDashboard from '../../assets/Seowyn/all-in-one.webp'
 
 export default {
   slug: 'seowyn',

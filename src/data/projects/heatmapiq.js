@@ -4,10 +4,10 @@
 
 // Screenshots are imported so Vite fingerprints them and the build fails on a
 // bad path. Each `ratio` is the file's real aspect ratio, so nothing crops.
-import logo from '../../assets/heatmap/heatMapLogo.png'
-import sharedReport from '../../assets/heatmap/deep-insites.png'
-import analysisCharts from '../../assets/heatmap/anylasis.png'
-import workspace from '../../assets/heatmap/dashboard1.png'
+import logo from '../../assets/heatmap/heatMapLogo.webp'
+import sharedReport from '../../assets/heatmap/deep-insites.webp'
+import analysisCharts from '../../assets/heatmap/anylasis.webp'
+import workspace from '../../assets/heatmap/dashboard1.webp'
 
 export default {
   slug: 'heatmapiq',
