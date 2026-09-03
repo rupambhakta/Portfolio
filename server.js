@@ -63,9 +63,12 @@ function serveStatic(req, res) {
   const decodedPath = decodeURIComponent(url.pathname)
   const safePath = path.normalize(decodedPath).replace(/^[/\\]+/, '')
   const requestedPath = path.resolve(distDir, safePath || 'index.html')
-  const isStaticFile =
-    requestedPath.startsWith(`${distDir}${path.sep}`) && existsSync(requestedPath) && statSync(requestedPath).isFile()
-  const filePath = isStaticFile ? requestedPath : indexFile
+  const inDist = requestedPath.startsWith(`${distDir}${path.sep}`) || requestedPath === distDir
+  // A prerendered route is a directory holding index.html, so resolve that the
+  // way Vercel does before falling back to the SPA shell.
+  const candidates = [requestedPath, path.join(requestedPath, 'index.html')]
+  const filePath =
+    (inDist && candidates.find((c) => existsSync(c) && statSync(c).isFile())) || indexFile
 
   if (!existsSync(filePath)) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' })
@@ -76,7 +79,9 @@ function serveStatic(req, res) {
   const ext = path.extname(filePath)
   res.writeHead(200, {
     'Content-Type': mimeTypes[ext] || 'application/octet-stream',
-    'Cache-Control': filePath === indexFile ? 'no-cache' : 'public, max-age=31536000, immutable',
+    // Hashed assets are immutable; HTML never is — every prerendered route is an
+    // index.html that must be revalidated or it pins visitors to an old bundle.
+    'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable',
   })
   createReadStream(filePath).pipe(res)
 }

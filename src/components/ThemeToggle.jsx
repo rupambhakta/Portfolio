@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Flame, Moon, Sun } from 'lucide-react'
-import { THEMES, applyTheme, readTheme } from '../lib/theme.js'
+import { DEFAULT_THEME, THEMES, applyTheme, readTheme } from '../lib/theme.js'
 import { EXPO } from '../lib/motion.js'
 
 const ICONS = { ember: Flame, light: Sun, dark: Moon }
 
 export default function ThemeToggle({ className = '', size = 'md' }) {
-  const [theme, setTheme] = useState(readTheme)
+  // Starts at the default rather than readTheme() so the first render matches
+  // the prerendered HTML — the boot script may already have set another theme,
+  // and reading it here would be a hydration mismatch. The effect below
+  // corrects it immediately after mount.
+  const [theme, setTheme] = useState(DEFAULT_THEME)
 
   // Sync with whatever the inline boot script decided, and with other tabs.
   useEffect(() => {

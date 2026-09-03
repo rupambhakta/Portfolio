@@ -6,7 +6,7 @@ import { loadSchedule } from './blog-schedule.mjs'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const OUTPUT = path.join(ROOT, 'public', 'sitemap.xml')
 const PROJECTS = path.join(ROOT, 'src', 'data', 'projects')
-const SITE = 'https://rupambhakta.com'
+const SITE = 'https://www.rupambhakta.com'
 
 const staticRoutes = [
   ['/', '1.0'],

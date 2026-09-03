@@ -36,3 +36,7 @@ Thumbs.db
 
 # Claude workspace settings
 .claude/
+
+# SSR bundle used only by scripts/prerender.mjs
+dist-ssr/
+
