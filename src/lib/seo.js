@@ -7,7 +7,7 @@ import { profile } from '../data/content.js'
 import { getPost } from '../data/blog/index.js'
 import { projects } from '../data/projects/index.js'
 
-export const SITE = 'https://www.rupambhakta.com'
+export const SITE = 'https://rupambhakta.com'
 export const NAME = 'Rupam Bhakta'
 
 // keep meta copy human: no em/en dashes, single spaces
